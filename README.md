@@ -1,4 +1,4 @@
-# Ross & Tshego Wedding Invitation
+# Jason & Maranyane Wedding Invitation
 
 ## Development
 
