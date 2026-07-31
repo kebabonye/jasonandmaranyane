@@ -6,6 +6,10 @@ import { Navigation } from "@/components/wedding/Navigation";
 import { Countdown } from "@/components/wedding/Countdown";
 import bgImage from "@/assets/homepage.jpeg";
 import programImage from "@/assets/program.jpeg";
+import image2 from "@/assets/image2.jpeg";
+import groomstrad from "@/assets/groomstrad.jpeg";
+import bridestrad from "@/assets/bridestrad.jpeg";
+
 
 export const Route = createFileRoute("/invitation")({
   head: () => ({
@@ -21,12 +25,9 @@ export const Route = createFileRoute("/invitation")({
 });
 
 const schedule = [
-  { time: "TBC", event: "Guest Arrival" },
-  { time: "TBC", event: "Ceremony" },
-  { time: "TBC", event: "Cocktail Hour" },
-  { time: "TBC", event: "Lunch & Speeches" },
-  { time: "TBC", event: "Toast" },
-  { time: "TBC", event: "Celebration" },
+  { event: "Church Service", detail: "Spiritual Healing Church, Mahalapye" },
+  { event: "Photography" },
+  { event: "The Wedding Celebration", detail: "Molapo Gardens, Mahalapye" },
 ];
 
 const giftRegistry = ["@Home", "Game", "Woolworths"];
@@ -34,6 +35,7 @@ const giftRegistry = ["@Home", "Game", "Woolworths"];
 const navLinks = [
   { label: "Details", href: "#details" },
   { label: "Program", href: "#program" },
+  { label: "Dress Code", href: "#dress-code" },
   { label: "Gifts", href: "#gifts" },
   { label: "RSVP", href: "#rsvp" },
   { label: "FAQs", href: "#faqs" },
@@ -48,7 +50,7 @@ const faqs = [
 
 function InvitationPage() {
   return (
-    <div className="min-h-screen pb-24">
+    <div className="min-h-screen pb-8">
       {/* Fixed full-page photo backdrop — every section below scrolls over this same image
           in its own translucent card, rather than each section carrying its own background. */}
       <div className="fixed inset-0 -z-10">
@@ -59,46 +61,69 @@ function InvitationPage() {
       <Navigation links={navLinks} />
       <main className="relative">
         {/* Hero / Invitation */}
-        <section id="invitation" className="relative flex flex-col items-center justify-center px-6 py-12 text-center md:min-h-dvh md:py-8">
-          <div className="relative z-10 max-w-2xl rounded-2xl bg-background/80 px-6 py-10 shadow-xl shadow-black/5 backdrop-blur-sm md:px-12 md:py-12">
-            <p className="animate-fade-up text-xs uppercase tracking-[0.3em] text-muted-foreground" style={{ animationDelay: "0ms" }}>
-              With joyful hearts
-            </p>
-            <h1
-              className="animate-fade-up font-display mt-4 text-3xl leading-tight text-foreground md:mt-4 md:text-6xl"
-              style={{ animationDelay: "150ms" }}
-            >
-              Jason <span className="font-display italic text-black">&</span> Maranyane
-            </h1>
-            <p
-              className="animate-fade-up mt-3 text-xs font-light uppercase tracking-[0.2em] text-muted-foreground"
-              style={{ animationDelay: "300ms" }}
-            >
-              Together with their families, invite you to join them at the celebration of their marriage
-            </p>
-
-            <p className="animate-fade-up font-body text-sm leading-relaxed text-foreground" style={{ animationDelay: "450ms" }}>
-              We would be honored to have you join us as we celebrate the love we
-              share. Your presence would mean the world to us as we continue this
-              beautiful new chapter.
-            </p>
-
-            <div className="animate-fade-up" style={{ animationDelay: "600ms" }}>
-              <span className="mt-6 block font-display text-4xl leading-none text-black/30">&ldquo;</span>
-              <p className="font-display -mt-2 text-lg italic leading-relaxed text-foreground md:text-xl">
-                Therefore what God has joined together, let no one separate.
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Mark 10:9
-              </p>
+        <section id="invitation" className="relative">
+          {/* Full-bleed photo with monogram overlay */}
+          <div className="relative aspect-[8/5] w-full sm:aspect-[3/2] md:aspect-[32/9]">
+            <img src={image2} alt="Jason and Maranyane" className="h-full w-full object-cover object-[50%_20%]" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
+            <div className="absolute inset-x-0 bottom-8 flex flex-col items-center px-6 text-center text-white">
+              <div className="flex items-end gap-3 font-display leading-none">
+                <span className="text-6xl md:text-8xl">J</span>
+                <span className="mb-1 text-3xl italic md:text-5xl">&amp;</span>
+                <span className="text-6xl md:text-8xl">M</span>
+              </div>
+              <p className="mt-3 text-sm uppercase tracking-[0.35em] md:text-lg">Jason &amp; Maranyane</p>
             </div>
+          </div>
 
-            {/* Countdown */}
-            <div className="animate-fade-up mt-8 border-t border-border/40 pt-8" style={{ animationDelay: "750ms" }}>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Counting down to</p>
-              <p className="font-display mt-1 text-lg text-black">October 31, 2026</p>
-              <div className="mt-4 flex justify-center">
-                <Countdown />
+          {/* Black intro panel */}
+          <div className="bg-black px-6 py-12 text-center text-white md:py-16">
+            <div className="mx-auto max-w-2xl">
+              <p className="animate-fade-up text-xs uppercase tracking-[0.3em] text-white/70" style={{ animationDelay: "0ms" }}>
+                With joyful hearts
+              </p>
+              <p
+                className="animate-fade-up font-display mt-3 text-xl uppercase tracking-[0.15em] md:text-2xl"
+                style={{ animationDelay: "150ms" }}
+              >
+                Jason &amp; Maranyane
+              </p>
+              <p
+                className="animate-fade-up mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/80"
+                style={{ animationDelay: "300ms" }}
+              >
+                Together with their families, invite you to join them at the celebration of their marriage
+              </p>
+
+              <p className="animate-fade-up mt-6 font-body text-sm leading-relaxed text-white/85" style={{ animationDelay: "450ms" }}>
+                We would be honored to have you join us as we celebrate the love we
+                share. Your presence would mean the world to us as we continue this
+                beautiful new chapter.
+              </p>
+
+              <div className="animate-fade-up mt-6 border-t border-white/20 pt-6" style={{ animationDelay: "600ms" }}>
+                <span className="block font-display text-4xl leading-none text-white/30">&ldquo;</span>
+                <p className="font-display -mt-2 text-lg italic leading-relaxed text-white/90 md:text-xl">
+                  Therefore what God has joined together, let no one separate.
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">
+                  Mark 10:9
+                </p>
+              </div>
+
+              <div className="animate-fade-up mt-6 border-t border-white/20 pt-6" style={{ animationDelay: "650ms" }}>
+                <p className="font-display text-base uppercase tracking-[0.2em] text-white md:text-lg">
+                  Church Service and Traditional Wedding
+                </p>
+              </div>
+
+              {/* Countdown */}
+              <div className="animate-fade-up mt-6 border-t border-white/20 pt-6" style={{ animationDelay: "750ms" }}>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/70">Counting down to</p>
+                <p className="font-display mt-1 text-lg">October 31, 2026</p>
+                <div className="mt-4 flex justify-center">
+                  <Countdown variant="dark" />
+                </div>
               </div>
             </div>
           </div>
@@ -132,19 +157,49 @@ function InvitationPage() {
             <img src={programImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-black/60" />
             <div className="relative px-6 py-12 md:px-12">
-              <h3 className="font-display text-center text-3xl italic text-white">Program</h3>
+              <h3 className="font-display text-center text-3xl italic text-white">Schedule of Events</h3>
               <div className="mx-auto mt-8 max-w-2xl">
                 {schedule.map((item) => (
-                  <div
-                    key={item.event}
-                    className="flex items-center gap-6 border-b border-white/20 py-5 last:border-b-0"
-                  >
-                    <span className="w-24 shrink-0 font-body text-sm font-medium text-white">
-                      {item.time}
-                    </span>
-                    <span className="font-display text-lg text-white/90">{item.event}</span>
+                  <div key={item.event} className="border-b border-white/20 py-5 text-center last:border-b-0">
+                    <p className="font-display text-lg text-white/90">{item.event}</p>
+                    {item.detail && <p className="mt-1 text-xs uppercase tracking-[0.15em] text-white/60">{item.detail}</p>}
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Dress Code */}
+          <section id="dress-code" className="scroll-mt-20 bg-background/85 px-6 py-12 text-center backdrop-blur-sm md:px-12">
+            <h3 className="font-display text-3xl italic text-black">Traditional Prints</h3>
+            <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
+              For the celebration, we invite our guests to wear traditional attire
+              featuring these fabrics.
+            </p>
+
+            <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
+                <div className="aspect-square overflow-hidden">
+                  <img src={groomstrad} alt="Groom's traditional print" className="h-full w-full object-cover" />
+                </div>
+                <div className="px-4 py-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-black">Groom's Print</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                    Groom's Friends &amp; Family
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
+                <div className="aspect-square overflow-hidden">
+                  <img src={bridestrad} alt="Bride's traditional print" className="h-full w-full object-cover" />
+                </div>
+                <div className="px-4 py-4">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-black">Bride's Print</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                    Bride's Friends &amp; Family
+                  </p>
+                </div>
               </div>
             </div>
           </section>

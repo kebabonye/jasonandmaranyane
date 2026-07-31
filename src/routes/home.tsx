@@ -21,7 +21,7 @@ export const Route = createFileRoute("/home")({
 
 function HomePage() {
   return (
-    <div className="min-h-screen pb-24">
+    <div className="min-h-screen pb-8">
       <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
         <img
           src={homeHero}

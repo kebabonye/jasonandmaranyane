@@ -29,7 +29,7 @@ function KgorosoIcon({ className }: { className?: string }) {
 }
 
 const tabs = [
-  { label: "White Wedding", to: "/invitation", icon: WeddingIcon },
+  { label: "Traditional Wedding", to: "/invitation", icon: WeddingIcon },
   { label: "Kgoroso", to: "/kgoroso", icon: KgorosoIcon },
 ] as const;
 
