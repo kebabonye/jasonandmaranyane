@@ -12,6 +12,7 @@ import { type ReactNode, useEffect, useRef, useState } from "react";
 import appCss from "../styles.css?url";
 import music from "@/assets/Music.mp3";
 
+// Rendered by the router when a URL doesn't match any route.
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -34,6 +35,7 @@ function NotFoundComponent() {
   );
 }
 
+// Rendered by the router when a route's loader or component throws.
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
@@ -98,6 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+// Outermost HTML document — wraps every page, including the error/not-found boundaries above.
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -112,6 +115,21 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function SpeakerIcon({ muted, className }: { muted: boolean; className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06z" />
+      {muted ? (
+        <path d="M17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 101.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 10-1.06-1.06l-1.72 1.72-1.72-1.72z" />
+      ) : (
+        <path d="M18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
+      )}
+    </svg>
+  );
+}
+
+// Background wedding music: starts muted (the only autoplay browsers reliably allow)
+// and switches to audible on the first user interaction with the page.
 function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [muted, setMuted] = useState(true);
@@ -163,21 +181,15 @@ function AudioPlayer() {
         aria-label={muted ? "Unmute music" : "Mute music"}
         className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full border border-white/40 bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg backdrop-blur-sm transition hover:bg-black/60"
       >
-        {muted ? (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 101.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 10-1.06-1.06l-1.72 1.72-1.72-1.72z" />
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
-          </svg>
-        )}
+        <SpeakerIcon muted={muted} className="h-4 w-4" />
         {muted ? "Unmute" : "Mute"}
       </button>
     </>
   );
 }
 
+// Rendered inside the shell for every matched route: provides React Query
+// context and the persistent audio player alongside the active page.
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 

@@ -49,13 +49,12 @@ export function BottomNav() {
             <li key={tab.to}>
               <Link
                 to={tab.to}
-                title={tab.label}
-                aria-label={tab.label}
-                className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
+                className={`flex h-11 items-center gap-2 rounded-full px-4 font-body text-xs uppercase tracking-[0.15em] transition-colors ${
                   active ? "bg-plum text-white" : "text-muted-foreground hover:text-plum"
                 }`}
               >
-                {Icon && <Icon className="h-5 w-5" />}
+                {Icon && <Icon className="h-5 w-5 shrink-0" />}
+                <span>{tab.label}</span>
               </Link>
             </li>
           );
