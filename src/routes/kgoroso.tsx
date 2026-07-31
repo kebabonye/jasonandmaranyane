@@ -63,9 +63,8 @@ function KgorosoPage() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
             <div className="absolute inset-x-0 bottom-8 flex flex-col items-center px-6 text-center text-white">
               <div className="flex items-end gap-3 font-display leading-none">
-                <span className="text-6xl md:text-8xl">J</span>
-                <span className="mb-1 text-3xl italic md:text-5xl">&amp;</span>
-                <span className="text-6xl md:text-8xl">M</span>
+               
+                <span className="text-6xl md:text-8xl">Kgoroso</span>
               </div>
               <AnimatedText
                 as="p"
