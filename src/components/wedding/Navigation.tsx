@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { AnimatedText } from "@/components/wedding/AnimatedText";
 
 export type NavLink = { label: string; href: string };
 
@@ -22,7 +23,7 @@ export function Navigation({ links }: { links: NavLink[] }) {
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="transition-colors hover:text-plum">
-                {link.label}
+                <AnimatedText text={link.label} />
               </a>
             </li>
           ))}
@@ -57,7 +58,7 @@ export function Navigation({ links }: { links: NavLink[] }) {
                   onClick={() => setOpen(false)}
                   className="block py-3 font-display text-lg text-foreground transition-colors hover:text-plum"
                 >
-                  {link.label}
+                  <AnimatedText text={link.label} />
                 </a>
               </li>
             ))}

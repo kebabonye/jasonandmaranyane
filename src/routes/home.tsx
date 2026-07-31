@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BottomNav } from "@/components/wedding/BottomNav";
 import { Slideshow } from "@/components/wedding/Slideshow";
+import { AnimatedText } from "@/components/wedding/AnimatedText";
 import homeHero from "@/assets/homepage.jpeg";
 import image1 from "@/assets/image1.jpeg";
 import image2 from "@/assets/image2.jpeg";
@@ -31,39 +32,55 @@ function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/80" />
 
         <div className="relative z-10 max-w-2xl">
-          <p className="animate-fade-up text-xs uppercase tracking-[0.3em] text-white/85" style={{ animationDelay: "0ms" }}>
-            With joyful hearts
-          </p>
-          <h1
-            className="animate-fade-up font-display mt-4 text-4xl leading-tight text-white md:text-6xl"
-            style={{ animationDelay: "150ms" }}
-          >
-            Jason <span className="font-display italic text-blush">&</span> Maranyane
+          <AnimatedText
+            as="p"
+            text="With joyful hearts"
+            className="text-xs uppercase tracking-[0.3em] text-white/85"
+          />
+          <h1 className="font-display mt-4 text-4xl leading-tight text-white md:text-6xl">
+            <span className="sr-only">Jason &amp; Maranyane</span>
+            <span aria-hidden="true" className="inline-flex flex-wrap items-center justify-center gap-x-2">
+              <AnimatedText as="span" text="Jason" delay={150} />
+              <span
+                className="animate-char-in inline-block font-display italic text-blush"
+                style={{ animationDelay: "220ms" }}
+              >
+                &amp;
+              </span>
+              <AnimatedText as="span" text="Maranyane" delay={260} />
+            </span>
           </h1>
-          <p
-            className="animate-fade-up mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/85"
-            style={{ animationDelay: "300ms" }}
-          >
-            Together with their families, invite you to join them at the celebration of their marriage
-          </p>
+          <AnimatedText
+            as="p"
+            text="Together with their families, invite you to join them at the celebration of their marriage"
+            className="mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/85"
+            delay={450}
+          />
 
-          <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
+          <div className="animate-fade-up" style={{ animationDelay: "600ms" }}>
             <span className="mt-6 block font-display text-4xl leading-none text-white/40">&ldquo;</span>
-            <p className="font-display -mt-2 text-lg italic leading-relaxed text-white md:text-xl">
-              For this reason a man will leave his father and mother and be united to his
-              wife, and the two will become one flesh. So they are no longer two, but one
-              flesh. Therefore what God has joined together, let no one separate.
-            </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/85">
-              Mark 10:7-9
-            </p>
+            <AnimatedText
+              as="p"
+              text="For this reason a man will leave his father and mother and be united to his wife, and the two will become one flesh. So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
+              className="font-display -mt-2 text-lg italic leading-relaxed text-white md:text-xl"
+            />
+            <AnimatedText
+              as="p"
+              text="Mark 10:7-9"
+              className="mt-2 text-xs uppercase tracking-[0.3em] text-white/85"
+              delay={300}
+            />
           </div>
         </div>
       </main>
 
       <section id="gallery" className="scroll-mt-20 bg-background px-6 py-16 text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our Moments</p>
-        <h2 className="font-display mt-4 text-3xl uppercase tracking-[0.15em] text-black">Gallery</h2>
+        <AnimatedText as="p" text="Our Moments" className="text-xs uppercase tracking-[0.3em] text-muted-foreground" />
+        <AnimatedText
+          as="h2"
+          text="Gallery"
+          className="font-display mt-4 text-3xl uppercase tracking-[0.15em] text-black"
+        />
 
         <Slideshow images={galleryImages} />
       </section>

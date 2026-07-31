@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { AnimatedText } from "@/components/wedding/AnimatedText";
 import landingHero from "@/assets/landingpage.jpeg";
 
 export const Route = createFileRoute("/")({
@@ -32,23 +33,26 @@ function LandingPage() {
         >
           <span className="flex items-center gap-6 text-6xl uppercase leading-none tracking-wide md:gap-10 md:text-8xl">
             <span>J</span>
-            <span>M</span>
+            
           </span>
           <span className="-mt-3 text-7xl italic leading-none text-blush md:-mt-5 md:text-9xl">&</span>
+          <span className="flex items-center gap-6 text-6xl uppercase leading-none tracking-wide md:gap-10 md:text-8xl">
+            <span>M</span>
+          </span>
         </h1>
-        <p
-          className="animate-fade-up mt-6 text-sm uppercase tracking-[0.25em] text-white/85"
-          style={{ animationDelay: "150ms" }}
-        >
-          Jason & Maranyane invite you to their Wedding & Kgoroso
-        </p>
+        <AnimatedText
+          as="p"
+          text="Jason & Maranyane invite you to their Wedding & Kgoroso"
+          className="mt-6 text-sm uppercase tracking-[0.25em] text-white/85"
+          delay={150}
+        />
 
         <div className="animate-fade-up mt-10" style={{ animationDelay: "300ms" }}>
           <Link
             to="/home"
             className="inline-flex items-center justify-center rounded-full border border-white bg-white px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-foreground transition-all hover:bg-white/90 hover:shadow-lg"
           >
-            Open Invitation
+            <AnimatedText text="Open Invitation" delay={400} />
           </Link>
         </div>
       </div>
