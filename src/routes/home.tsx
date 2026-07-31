@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BottomNav } from "@/components/wedding/BottomNav";
+import { Slideshow } from "@/components/wedding/Slideshow";
 import homeHero from "@/assets/homepage.jpeg";
 import image1 from "@/assets/image1.jpeg";
 import image2 from "@/assets/image2.jpeg";
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/home")({
 
 function HomePage() {
   return (
-    <div className="min-h-screen pb-16">
+    <div className="min-h-screen pb-24">
       <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
         <img
           src={homeHero}
@@ -56,18 +57,7 @@ function HomePage() {
         <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our Moments</p>
         <h2 className="font-display mt-4 text-3xl uppercase tracking-[0.15em] text-black">Gallery</h2>
 
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
-          {galleryImages.map((src, index) => (
-            <div key={src} className="aspect-square overflow-hidden rounded-2xl border border-border/60">
-              <img
-                src={src}
-                alt={`Jason and Maranyane ${index + 1}`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
+        <Slideshow images={galleryImages} />
       </section>
 
       <BottomNav />

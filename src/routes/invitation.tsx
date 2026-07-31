@@ -32,33 +32,21 @@ const giftRegistry = ["@Home", "Game", "Woolworths"];
 const navLinks = [
   { label: "Details", href: "#details" },
   { label: "Program", href: "#program" },
-  { label: "Dress Code", href: "#dress-code" },
   { label: "Gifts", href: "#gifts" },
   { label: "RSVP", href: "#rsvp" },
   { label: "FAQs", href: "#faqs" },
 ];
 
-const ladiesPalette = ["#4e2c5a", "#7f4b8d", "#a76ba1", "#c57db8", "#d99ace", "#eab8e4", "#f1c0e0"];
-const mensPalette = ["#1a2744"];
-
 const faqs = [
   {
     question: "Are kids welcome?",
     answer: "As much as we love your little ones, this will be an adults-only celebration.",
-  },
-  {
-    question: "Can I bring a plus one?",
-    answer: "Due to our sealed guest list, we're only able to accommodate the guests named on the invitation.",
-  },
-  {
-    question: "Can I share this invitation with others?",
-    answer: "This invitation is intended only for the person it was sent to — please don't forward or share it with anyone not on the guest list.",
-  },
+  }
 ];
 
 function InvitationPage() {
   return (
-    <div className="min-h-screen bg-background pb-16">
+    <div className="min-h-screen bg-background pb-24">
       <Navigation links={navLinks} />
       <main className="relative">
         {/* Hero / Invitation */}
@@ -150,106 +138,6 @@ function InvitationPage() {
                   <span className="font-display text-lg text-foreground">{item.event}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="dress-code" className="scroll-mt-20 bg-background py-16">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <h3 className="font-display text-3xl uppercase tracking-[0.15em] text-black">Dress Code</h3>
-          
-            <p className="font-display mt-2 text-2xl text-foreground">Formal & Elegant</p>
-            <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
-              Ladies, we invite you to wear shades of purple and pink. Gentlemen, please
-              wear navy blue.
-            </p>
-
-            <div className="mx-auto mt-10 grid max-w-2xl gap-10 md:grid-cols-2">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  Ladies — Purple & Pink
-                </p>
-                <div className="mt-4 flex h-16 overflow-hidden rounded-lg border border-border/60">
-                  {ladiesPalette.map((hex) => (
-                    <div key={hex} className="flex-1" style={{ backgroundColor: hex }} />
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  Gentlemen — Navy Blue
-                </p>
-                <div className="mt-4 flex h-16 overflow-hidden rounded-lg border border-border/60">
-                  {mensPalette.map((hex) => (
-                    <div key={hex} className="flex-1" style={{ backgroundColor: hex }} />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mx-auto mt-14 grid max-w-2xl gap-6 text-left sm:grid-cols-2">
-              <div className="rounded-2xl border border-border/60 bg-white px-6 py-6">
-                <p className="flex items-center gap-2 font-display text-lg text-black">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="h-5 w-5 text-green-600"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  Do
-                </p>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-plum" />
-                    <span>Wear elegant dresses, cocktail attire, or suits.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-plum" />
-                    <span>
-                      Opt for classic, sophisticated fabrics and colors — mix and match
-                      shades like lavender with rose gold, or plum with blush.
-                    </span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-plum" />
-                    <span>Add polished accessories — heels, a clutch, cufflinks.</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded-2xl border border-border/60 bg-white px-6 py-6">
-                <p className="flex items-center gap-2 font-display text-lg text-black">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="h-5 w-5 text-red-600"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
-                  Don&rsquo;t
-                </p>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive/70" />
-                    <span>Wear white, off-white, ivory, or cream (reserved for the bride).</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive/70" />
-                    <span>Bright red, orange, neon, or clashing colors outside the palette.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive/70" />
-                    <span>Wear jeans, shorts, sportswear, or casual sneakers.</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </section>

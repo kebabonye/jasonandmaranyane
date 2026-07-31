@@ -46,7 +46,7 @@ const faqs = [
 
 function KgorosoPage() {
   return (
-    <div className="min-h-screen bg-background pb-16">
+    <div className="min-h-screen bg-background pb-24">
       <Navigation links={navLinks} />
       <main className="relative">
         {/* Hero / Invitation */}

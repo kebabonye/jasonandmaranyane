@@ -6,7 +6,7 @@
 /*
  * Elegant wedding design system.
  *
- * Palette: warm ivory, soft blush, sage green, and refined gold accents.
+ * Palette: black, white, and grayscale tones only.
  * Typography: Playfair Display for headings, Lato for body text.
  */
 
@@ -69,48 +69,48 @@
 :root {
   --radius: 0.5rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.25 0.02 280);
+  --foreground: oklch(0.25 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.25 0.02 280);
+  --card-foreground: oklch(0.25 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.02 280);
-  --primary: oklch(0.35 0.06 280);
+  --popover-foreground: oklch(0.25 0 0);
+  --primary: oklch(0.2 0 0);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.94 0.02 85);
-  --secondary-foreground: oklch(0.35 0.06 280);
-  --muted: oklch(0.94 0.02 85);
-  --muted-foreground: oklch(0.55 0.04 280);
-  --accent: oklch(0.92 0.04 145);
-  --accent-foreground: oklch(0.35 0.06 280);
-  --destructive: oklch(0.6 0.2 25);
+  --secondary: oklch(0.94 0 0);
+  --secondary-foreground: oklch(0.25 0 0);
+  --muted: oklch(0.94 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.92 0 0);
+  --accent-foreground: oklch(0.25 0 0);
+  --destructive: oklch(0.3 0 0);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.86 0.02 85);
-  --input: oklch(0.86 0.02 85);
-  --ring: oklch(0.55 0.04 280);
-  --chart-1: oklch(0.65 0.12 30);
-  --chart-2: oklch(0.55 0.1 150);
-  --chart-3: oklch(0.45 0.08 280);
-  --chart-4: oklch(0.75 0.14 80);
-  --chart-5: oklch(0.6 0.1 200);
+  --border: oklch(0.86 0 0);
+  --input: oklch(0.86 0 0);
+  --ring: oklch(0.55 0 0);
+  --chart-1: oklch(0.65 0 0);
+  --chart-2: oklch(0.5 0 0);
+  --chart-3: oklch(0.4 0 0);
+  --chart-4: oklch(0.75 0 0);
+  --chart-5: oklch(0.3 0 0);
   --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.25 0.02 280);
-  --sidebar-primary: oklch(0.35 0.06 280);
+  --sidebar-foreground: oklch(0.25 0 0);
+  --sidebar-primary: oklch(0.2 0 0);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.94 0.02 85);
-  --sidebar-accent-foreground: oklch(0.35 0.06 280);
-  --sidebar-border: oklch(0.86 0.02 85);
-  --sidebar-ring: oklch(0.55 0.04 280);
+  --sidebar-accent: oklch(0.94 0 0);
+  --sidebar-accent-foreground: oklch(0.25 0 0);
+  --sidebar-border: oklch(0.86 0 0);
+  --sidebar-ring: oklch(0.55 0 0);
   --ivory: oklch(1 0 0);
   --cream: oklch(1 0 0);
-  --blush: oklch(0.88 0.06 20);
-  --rose: oklch(0.5 0.12 20);
-  --plum: oklch(0.42 0.14 320);
-  --orchid: oklch(0.5 0.12 315);
-  --mauve: oklch(0.53 0.1 312);
-  --wash: oklch(0.965 0.015 320);
-  --sage: oklch(0.75 0.06 145);
-  --gold: oklch(0.75 0.12 85);
-  --ink: oklch(0.25 0.02 280);
+  --blush: oklch(0.85 0 0);
+  --rose: oklch(0.4 0 0);
+  --plum: oklch(0.2 0 0);
+  --orchid: oklch(0.25 0 0);
+  --mauve: oklch(0.35 0 0);
+  --wash: oklch(0.97 0 0);
+  --sage: oklch(0.6 0 0);
+  --gold: oklch(0.4 0 0);
+  --ink: oklch(0.15 0 0);
 }
 
 @layer base {

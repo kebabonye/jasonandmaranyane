@@ -38,23 +38,24 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border/40 bg-background/95 backdrop-blur-md"
-      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-6"
+      style={{ marginBottom: "env(safe-area-inset-bottom)" }}
     >
-      <ul className="mx-auto flex max-w-md">
+      <ul className="flex items-center gap-2 rounded-full border border-border/40 bg-white/95 p-2 shadow-xl shadow-black/10 backdrop-blur-md">
         {tabs.map((tab) => {
           const active = pathname === tab.to;
           const Icon = tab.icon;
           return (
-            <li key={tab.to} className="flex-1">
+            <li key={tab.to}>
               <Link
                 to={tab.to}
-                className={`flex h-16 flex-col items-center justify-center gap-1 font-body text-xs uppercase tracking-[0.2em] transition-colors ${
-                  active ? "text-plum" : "text-muted-foreground hover:text-plum"
+                title={tab.label}
+                aria-label={tab.label}
+                className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
+                  active ? "bg-plum text-white" : "text-muted-foreground hover:text-plum"
                 }`}
               >
                 {Icon && <Icon className="h-5 w-5" />}
-                {tab.label}
               </Link>
             </li>
           );
