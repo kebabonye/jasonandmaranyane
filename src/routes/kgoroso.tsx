@@ -327,13 +327,43 @@ function KgorosoPage() {
             </section>
 
             <section id="enquiries" className="mt-16 scroll-mt-20">
-              <AnimatedText as="h3" text="Enquiries" className="font-display text-2xl italic text-black" />
+              <AnimatedText as="h3" text="Need Assistance?" className="font-display text-2xl italic text-black" />
               <AnimatedText
                 as="p"
-                text="For any questions, please contact +267 73 209 745."
-                className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground"
+                text="RSVP Coordinators"
+                className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground"
                 delay={150}
               />
+
+              <div className="mx-auto mt-8 grid max-w-md gap-8 text-left sm:grid-cols-2">
+                <div>
+                  <AnimatedText as="p" text="Bride's Side" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
+                  <div className="mt-3 space-y-2 text-sm text-foreground">
+                    <div className="flex justify-between gap-4">
+                      <AnimatedText text="Dineo" />
+                      <AnimatedText text="+267 73 209 745 / 71 546 792" className="text-muted-foreground" />
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <AnimatedText text="Precious" />
+                      <AnimatedText text="+267 74 239 138" className="text-muted-foreground" />
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <AnimatedText as="p" text="Groom's Side & Kgoroso" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
+                  <div className="mt-3 space-y-2 text-sm text-foreground">
+                    <div className="flex justify-between gap-4">
+                      <AnimatedText text="Rowesai" />
+                      <AnimatedText text="+267 72 107 984" className="text-muted-foreground" />
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <AnimatedText text="Rudo" />
+                      <AnimatedText text="+267 78 469 875" className="text-muted-foreground" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
 
             <section id="faqs" className="mt-16 scroll-mt-20 text-left">
