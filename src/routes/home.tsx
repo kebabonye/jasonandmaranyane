@@ -85,6 +85,28 @@ function HomePage() {
         <Slideshow images={galleryImages} />
       </section>
 
+      <section id="share-photos" className="scroll-mt-20 bg-black px-6 py-16 text-center text-white">
+        <AnimatedText as="p" text="Share Your Photos" className="text-xs uppercase tracking-[0.3em] text-white/70" />
+        <AnimatedText
+          as="h2"
+          text="Add To Our Album"
+          className="font-display mt-4 text-3xl uppercase tracking-[0.15em]"
+          delay={150}
+        />
+        <AnimatedText
+          as="p"
+          text="Did you capture some great moments? Upload your photos and videos from the celebration to our shared Google Photos album so we can relive the day together."
+          className="mx-auto mt-4 max-w-xl leading-relaxed text-white/80"
+          delay={300}
+        />
+
+        <div className="mt-8">
+          <span className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-white/60">
+            Google Photos link coming soon
+          </span>
+        </div>
+      </section>
+
       <BottomNav />
     </div>
   );

@@ -18,14 +18,14 @@ export function Slideshow({
   }, [images.length, interval]);
 
   return (
-    <div className="mx-auto mt-10 max-w-2xl">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/60">
+    <div className="mx-auto mt-10 max-w-3xl">
+      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-border/60">
         {images.map((src, index) => (
           <img
             key={src}
             src={src}
             alt={`Jason and Maranyane ${index + 1}`}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-1000 ease-in-out ${
               index === current ? "opacity-100" : "opacity-0"
             }`}
             loading={index === 0 ? "eager" : "lazy"}
