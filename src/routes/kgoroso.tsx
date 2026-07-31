@@ -7,6 +7,7 @@ import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
 import image4 from "@/assets/image4.png";
 import image5 from "@/assets/image5.jpeg";
+import kgorosoPrint from "@/assets/kgoroso.jpeg";
 
 
 export const Route = createFileRoute("/kgoroso")({
@@ -186,48 +187,23 @@ function KgorosoPage() {
             <AnimatedText as="h3" text="Traditional Prints" className="font-display text-3xl italic text-black" />
             <AnimatedText
               as="p"
-              text="For the celebration, we invite our guests to wear traditional attire featuring these fabrics."
+              text="For the celebration, we invite our guests to wear traditional attire featuring this print."
               className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground"
               delay={150}
             />
 
-            <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
-                <div className="flex aspect-square items-center justify-center bg-muted">
-                  <AnimatedText
-                    as="p"
-                    text="Groom's print coming soon"
-                    className="px-4 text-xs uppercase tracking-[0.15em] text-muted-foreground"
-                  />
-                </div>
-                <div className="px-4 py-4">
-                  <AnimatedText as="p" text="Groom's Print" className="text-sm font-semibold uppercase tracking-[0.15em] text-black" />
-                  <AnimatedText
-                    as="p"
-                    text="Groom's Friends & Family"
-                    className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground"
-                    delay={150}
-                  />
-                </div>
+            <div className="mx-auto mt-10 max-w-xs overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
+              <div className="aspect-square overflow-hidden">
+                <img src={kgorosoPrint} alt="Kgoroso traditional print" className="h-full w-full object-cover" />
               </div>
-
-              <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
-                <div className="flex aspect-square items-center justify-center bg-muted">
-                  <AnimatedText
-                    as="p"
-                    text="Bride's print coming soon"
-                    className="px-4 text-xs uppercase tracking-[0.15em] text-muted-foreground"
-                  />
-                </div>
-                <div className="px-4 py-4">
-                  <AnimatedText as="p" text="Bride's Print" className="text-sm font-semibold uppercase tracking-[0.15em] text-black" />
-                  <AnimatedText
-                    as="p"
-                    text="Bride's Friends & Family"
-                    className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground"
-                    delay={150}
-                  />
-                </div>
+              <div className="px-4 py-4">
+                <AnimatedText as="p" text="Traditional Print" className="text-sm font-semibold uppercase tracking-[0.15em] text-black" />
+                <AnimatedText
+                  as="p"
+                  text="Guests & Family"
+                  className="mt-1 text-xs uppercase tracking-[0.1em] text-muted-foreground"
+                  delay={150}
+                />
               </div>
             </div>
           </div>
@@ -303,7 +279,7 @@ function KgorosoPage() {
 
               <AnimatedText
                 as="p"
-                text="Kindly let us know by 01 September 2026 if you will be joining us."
+                text="Kindly let us know by 31 August 2026 if you will be joining us."
                 className="mt-2 text-muted-foreground"
                 delay={300}
               />
@@ -319,11 +295,7 @@ function KgorosoPage() {
                 </a>
               </div>
 
-              <AnimatedText
-                as="p"
-                text="This invitation is extended solely to the named guest. As we have a sealed guest list, we kindly ask that it not be shared with others."
-                className="mx-auto mt-6 max-w-md text-xs uppercase tracking-[0.15em] text-muted-foreground"
-              />
+             
             </section>
 
             <section id="enquiries" className="mt-16 scroll-mt-20">

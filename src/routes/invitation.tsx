@@ -314,7 +314,7 @@ function InvitationPage() {
 
               <AnimatedText
                 as="p"
-                text="Kindly let us know by 01 September 2026 if you will be joining us."
+                text="Kindly let us know by 31 August 2026 if you will be joining us."
                 className="mt-2 text-muted-foreground"
                 delay={300}
               />
@@ -330,11 +330,7 @@ function InvitationPage() {
                 </a>
               </div>
 
-              <AnimatedText
-                as="p"
-                text="This invitation is extended solely to the named guest. As we have a sealed guest list, we kindly ask that it not be shared with others."
-                className="mx-auto mt-6 max-w-md text-xs uppercase tracking-[0.15em] text-muted-foreground"
-              />
+             
             </section>
 
             <section id="enquiries" className="mt-16 scroll-mt-20">
