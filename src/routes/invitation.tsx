@@ -4,6 +4,8 @@ import { Footer } from "@/components/wedding/Footer";
 import { Navigation } from "@/components/wedding/Navigation";
 
 import { Countdown } from "@/components/wedding/Countdown";
+import bgImage from "@/assets/homepage.jpeg";
+import programImage from "@/assets/program.jpeg";
 
 export const Route = createFileRoute("/invitation")({
   head: () => ({
@@ -46,15 +48,19 @@ const faqs = [
 
 function InvitationPage() {
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen pb-24">
+      {/* Fixed full-page photo backdrop — every section below scrolls over this same image
+          in its own translucent card, rather than each section carrying its own background. */}
+      <div className="fixed inset-0 -z-10">
+        <img src={bgImage} alt="" className="h-full w-full object-cover object-[50%_15%]" />
+        <div className="absolute inset-0 bg-white/80" />
+      </div>
+
       <Navigation links={navLinks} />
       <main className="relative">
         {/* Hero / Invitation */}
-        <section id="invitation" className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-12 text-center md:min-h-dvh md:py-8">
-        
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/10 via-background/30 to-background" />
-
-          <div className="relative z-10 max-w-2xl rounded-2xl bg-background/70 px-6 py-10 backdrop-blur-sm md:px-12 md:py-12">
+        <section id="invitation" className="relative flex flex-col items-center justify-center px-6 py-12 text-center md:min-h-dvh md:py-8">
+          <div className="relative z-10 max-w-2xl rounded-2xl bg-background/80 px-6 py-10 shadow-xl shadow-black/5 backdrop-blur-sm md:px-12 md:py-12">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
               With joyful hearts
             </p>
@@ -80,70 +86,65 @@ function InvitationPage() {
             <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
               Mark 10:9
             </p>
-          </div>
-        </section>
 
-        {/* Countdown */}
-        <section className="relative overflow-hidden px-6 py-8 text-center">
-        
-          <div className="relative z-10 mx-auto max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Counting down to</p>
-            <p className="font-display mt-1 text-lg text-black">October 31, 2026</p>
-            <div className="mt-4 flex justify-center">
-              <Countdown />
+            {/* Countdown */}
+            <div className="mt-8 border-t border-border/40 pt-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Counting down to</p>
+              <p className="font-display mt-1 text-lg text-black">October 31, 2026</p>
+              <div className="mt-4 flex justify-center">
+                <Countdown />
+              </div>
             </div>
           </div>
         </section>
 
-       
+        <div className="flex flex-col gap-8 py-10">
+          {/* Details */}
+          <section id="details" className="scroll-mt-20 bg-background/85 px-6 py-12 text-center backdrop-blur-sm md:px-12">
+            <header>
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Celebration</p>
+              <h2 className="font-display mt-4 text-5xl font-semibold text-black">Wedding Details</h2>
+            </header>
 
-        {/* Details */}
-        <section id="details" className="mx-auto max-w-4xl px-6 py-20 scroll-mt-20">
-          <header className="text-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Celebration</p>
-            <h2 className="font-display mt-4 text-5xl font-semibold text-black">Wedding Details</h2>
-           
-          </header>
-
-          <div className="text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">When</p>
-            <p className="font-display mt-2 text-3xl text-foreground">Saturday, October 31, 2026</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Celebration time to be confirmed.
-            </p>
-          </div>
-
-          <div className="mt-10 text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Where</p>
-            <p className="font-display mt-2 text-3xl text-foreground">Molapo Gardens</p>
-            <p className="mt-2 text-muted-foreground">Mahalapye</p>
-          </div>
-        </section>
-
-        
-        <section id="program" className="relative scroll-mt-20 overflow-hidden bg-wash py-16">
-         
-
-          <div className="relative z-10 mx-auto max-w-4xl px-6">
-            <h3 className="font-display text-center text-3xl italic text-black">Program</h3>
-            <div className="mx-auto mt-8 max-w-2xl">
-              {schedule.map((item) => (
-                <div
-                  key={item.event}
-                  className="flex items-center gap-6 border-b border-border/40 py-5 last:border-b-0"
-                >
-                  <span className="w-24 shrink-0 font-body text-sm font-medium text-black">
-                    {item.time}
-                  </span>
-                  <span className="font-display text-lg text-foreground">{item.event}</span>
-                </div>
-              ))}
+            <div className="mt-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">When</p>
+              <p className="font-display mt-2 text-3xl text-foreground">Saturday, October 31, 2026</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Celebration time to be confirmed.
+              </p>
             </div>
-          </div>
-        </section>
 
-        <section id="gifts" className="relative overflow-hidden py-16 px-6 text-center scroll-mt-20">
-          <div className="mx-auto max-w-4xl">
+            <div className="mt-10">
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Where</p>
+              <p className="font-display mt-2 text-3xl text-foreground">Molapo Gardens</p>
+              <p className="mt-2 text-muted-foreground">Mahalapye</p>
+            </div>
+          </section>
+
+          {/* Program */}
+          <section id="program" className="relative scroll-mt-20 overflow-hidden">
+            <img src={programImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="relative px-6 py-12 md:px-12">
+              <h3 className="font-display text-center text-3xl italic text-white">Program</h3>
+              <div className="mx-auto mt-8 max-w-2xl">
+                {schedule.map((item) => (
+                  <div
+                    key={item.event}
+                    className="flex items-center gap-6 border-b border-white/20 py-5 last:border-b-0"
+                  >
+                    <span className="w-24 shrink-0 font-body text-sm font-medium text-white">
+                      {item.time}
+                    </span>
+                    <span className="font-display text-lg text-white/90">{item.event}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Gifts */}
+          <section id="gifts" className="scroll-mt-20 bg-background/85 px-6 py-12 text-center backdrop-blur-sm md:px-12">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">With Gratitude</p>
             <h3 className="font-display mt-4 text-3xl font-semibold text-black">Gift Registry</h3>
 
@@ -195,12 +196,10 @@ function InvitationPage() {
                 Reference: Use your name and surname
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="bg-white py-16">
-          <div className="mx-auto max-w-2xl px-6 text-center">
-            {/* RSVP */}
+          {/* RSVP, Enquiries, FAQs, Privacy */}
+          <section className="bg-background/85 px-6 py-12 text-center backdrop-blur-sm md:px-12">
             <section id="rsvp" className="scroll-mt-20">
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Please respond</p>
               <h2 className="font-display mt-4 text-5xl font-semibold text-black">RSVP</h2>
@@ -258,8 +257,8 @@ function InvitationPage() {
               of managing our entrance registry upon arrival, arranging table seating, and ensuring security. Please note that photographs and videos captured 
                throughout the celebration may be shared with our loved ones and on our social media pages.
             </p>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
 
       <Footer />

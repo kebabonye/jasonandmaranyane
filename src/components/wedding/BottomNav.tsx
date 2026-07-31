@@ -41,7 +41,7 @@ export function BottomNav() {
       className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-6"
       style={{ marginBottom: "env(safe-area-inset-bottom)" }}
     >
-      <ul className="flex items-center gap-2 rounded-full border border-border/40 bg-white/95 p-2 shadow-xl shadow-black/10 backdrop-blur-md">
+      <ul className="flex items-center gap-1 rounded-2xl border border-border/40 bg-white/95 p-1 shadow-xl shadow-black/10 backdrop-blur-md">
         {tabs.map((tab) => {
           const active = pathname === tab.to;
           const Icon = tab.icon;
@@ -49,11 +49,11 @@ export function BottomNav() {
             <li key={tab.to}>
               <Link
                 to={tab.to}
-                className={`flex h-11 items-center gap-2 rounded-full px-4 font-body text-xs uppercase tracking-[0.15em] transition-colors ${
+                className={`flex flex-col items-center justify-center gap-0.5 rounded-xl px-2.5 py-1 font-body text-[8px] uppercase tracking-[0.1em] transition-colors ${
                   active ? "bg-plum text-white" : "text-muted-foreground hover:text-plum"
                 }`}
               >
-                {Icon && <Icon className="h-5 w-5 shrink-0" />}
+                {Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
                 <span>{tab.label}</span>
               </Link>
             </li>
