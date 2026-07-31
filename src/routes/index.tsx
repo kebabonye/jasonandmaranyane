@@ -26,16 +26,24 @@ function LandingPage() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-foreground/10 via-foreground/25 to-foreground/70" />
 
       <div className="relative z-10 max-w-2xl">
-        <h1 className="font-display flex items-center justify-center gap-4 text-6xl uppercase leading-none tracking-wide text-white md:gap-6 md:text-8xl">
-          <span>J</span>
-          <span className="font-display self-center text-3xl italic text-blush md:text-5xl">&</span>
-          <span>M</span>
+        <h1
+          className="animate-fade-up font-display flex flex-col items-center text-white"
+          style={{ animationDelay: "0ms" }}
+        >
+          <span className="flex items-center gap-6 text-6xl uppercase leading-none tracking-wide md:gap-10 md:text-8xl">
+            <span>J</span>
+            <span>M</span>
+          </span>
+          <span className="-mt-3 text-7xl italic leading-none text-blush md:-mt-5 md:text-9xl">&</span>
         </h1>
-        <p className="mt-6 text-sm uppercase tracking-[0.25em] text-white/85">
+        <p
+          className="animate-fade-up mt-6 text-sm uppercase tracking-[0.25em] text-white/85"
+          style={{ animationDelay: "150ms" }}
+        >
           Jason & Maranyane invite you to their Wedding & Kgoroso
         </p>
 
-        <div className="mt-10">
+        <div className="animate-fade-up mt-10" style={{ animationDelay: "300ms" }}>
           <Link
             to="/home"
             className="inline-flex items-center justify-center rounded-full border border-white bg-white px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-foreground transition-all hover:bg-white/90 hover:shadow-lg"

@@ -4,6 +4,8 @@ import { Footer } from "@/components/wedding/Footer";
 import { Navigation } from "@/components/wedding/Navigation";
 
 import { Countdown } from "@/components/wedding/Countdown";
+import image4 from "@/assets/image4.png";
+import image5 from "@/assets/image5.jpeg";
 
 export const Route = createFileRoute("/kgoroso")({
   head: () => ({
@@ -93,6 +95,15 @@ function KgorosoPage() {
 
         {/* Details */}
         <section id="details" className="mx-auto max-w-4xl px-6 py-20 scroll-mt-20">
+          <div className="relative mx-auto mb-16 aspect-[3/4] w-56 sm:w-64">
+            <div className="absolute inset-0 overflow-hidden rounded-t-full shadow-lg">
+              <img src={image4} alt="Jason and Maranyane" className="h-full w-full object-cover" />
+            </div>
+            <div className="absolute -bottom-8 -right-10 aspect-[3/4] w-28 overflow-hidden rounded-t-full border-4 border-background shadow-xl sm:w-32">
+              <img src={image5} alt="Maranyane" className="h-full w-full object-cover" />
+            </div>
+          </div>
+
           <header className="text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">The Celebration</p>
             <h2 className="font-display mt-4 text-5xl font-semibold text-black">Kgoroso</h2>

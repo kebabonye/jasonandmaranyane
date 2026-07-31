@@ -31,25 +31,33 @@ function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/80" />
 
         <div className="relative z-10 max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/85">
+          <p className="animate-fade-up text-xs uppercase tracking-[0.3em] text-white/85" style={{ animationDelay: "0ms" }}>
             With joyful hearts
           </p>
-          <h1 className="font-display mt-4 text-4xl leading-tight text-white md:text-6xl">
+          <h1
+            className="animate-fade-up font-display mt-4 text-4xl leading-tight text-white md:text-6xl"
+            style={{ animationDelay: "150ms" }}
+          >
             Jason <span className="font-display italic text-blush">&</span> Maranyane
           </h1>
-          <p className="mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/85">
+          <p
+            className="animate-fade-up mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/85"
+            style={{ animationDelay: "300ms" }}
+          >
             Together with their families, invite you to join them at the celebration of their marriage
           </p>
 
-          <span className="mt-6 block font-display text-4xl leading-none text-white/40">&ldquo;</span>
-          <p className="font-display -mt-2 text-lg italic leading-relaxed text-white md:text-xl">
-            For this reason a man will leave his father and mother and be united to his
-            wife, and the two will become one flesh. So they are no longer two, but one
-            flesh. Therefore what God has joined together, let no one separate.
-          </p>
-          <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/85">
-            Mark 10:7-9
-          </p>
+          <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
+            <span className="mt-6 block font-display text-4xl leading-none text-white/40">&ldquo;</span>
+            <p className="font-display -mt-2 text-lg italic leading-relaxed text-white md:text-xl">
+              For this reason a man will leave his father and mother and be united to his
+              wife, and the two will become one flesh. So they are no longer two, but one
+              flesh. Therefore what God has joined together, let no one separate.
+            </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/85">
+              Mark 10:7-9
+            </p>
+          </div>
         </div>
       </main>
 

@@ -10,7 +10,11 @@ export function Navigation({ links }: { links: NavLink[] }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/85 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/home" className="font-display text-xl italic text-black">
+        <Link
+          to="/home"
+          className="font-display text-xl italic text-black inline-block"
+          style={{ transform: "skewX(-12deg)" }}
+        >
           J&amp;M
         </Link>
 

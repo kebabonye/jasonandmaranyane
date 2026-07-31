@@ -61,34 +61,40 @@ function InvitationPage() {
         {/* Hero / Invitation */}
         <section id="invitation" className="relative flex flex-col items-center justify-center px-6 py-12 text-center md:min-h-dvh md:py-8">
           <div className="relative z-10 max-w-2xl rounded-2xl bg-background/80 px-6 py-10 shadow-xl shadow-black/5 backdrop-blur-sm md:px-12 md:py-12">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="animate-fade-up text-xs uppercase tracking-[0.3em] text-muted-foreground" style={{ animationDelay: "0ms" }}>
               With joyful hearts
             </p>
-            <h1 className="font-display mt-4 text-3xl leading-tight text-foreground md:mt-4 md:text-6xl">
+            <h1
+              className="animate-fade-up font-display mt-4 text-3xl leading-tight text-foreground md:mt-4 md:text-6xl"
+              style={{ animationDelay: "150ms" }}
+            >
               Jason <span className="font-display italic text-black">&</span> Maranyane
             </h1>
-            <p className="mt-3 text-xs font-light uppercase tracking-[0.2em] text-muted-foreground">
+            <p
+              className="animate-fade-up mt-3 text-xs font-light uppercase tracking-[0.2em] text-muted-foreground"
+              style={{ animationDelay: "300ms" }}
+            >
               Together with their families, invite you to join them at the celebration of their marriage
             </p>
 
-         
-
-            <p className="font-body text-sm leading-relaxed text-foreground">
+            <p className="animate-fade-up font-body text-sm leading-relaxed text-foreground" style={{ animationDelay: "450ms" }}>
               We would be honored to have you join us as we celebrate the love we
               share. Your presence would mean the world to us as we continue this
               beautiful new chapter.
             </p>
 
-            <span className="mt-6 block font-display text-4xl leading-none text-black/30">&ldquo;</span>
-            <p className="font-display -mt-2 text-lg italic leading-relaxed text-foreground md:text-xl">
-              Therefore what God has joined together, let no one separate.
-            </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Mark 10:9
-            </p>
+            <div className="animate-fade-up" style={{ animationDelay: "600ms" }}>
+              <span className="mt-6 block font-display text-4xl leading-none text-black/30">&ldquo;</span>
+              <p className="font-display -mt-2 text-lg italic leading-relaxed text-foreground md:text-xl">
+                Therefore what God has joined together, let no one separate.
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Mark 10:9
+              </p>
+            </div>
 
             {/* Countdown */}
-            <div className="mt-8 border-t border-border/40 pt-8">
+            <div className="animate-fade-up mt-8 border-t border-border/40 pt-8" style={{ animationDelay: "750ms" }}>
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Counting down to</p>
               <p className="font-display mt-1 text-lg text-black">October 31, 2026</p>
               <div className="mt-4 flex justify-center">
