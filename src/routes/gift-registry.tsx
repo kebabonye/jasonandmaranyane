@@ -143,14 +143,14 @@ function GiftRegistryPage() {
           text="Vouchers"
           className="mt-8 text-xs uppercase tracking-[0.2em] text-muted-foreground"
         />
-        <div className="mx-auto mt-4 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mx-auto mt-4 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-3">
           {giftRegistry.map((store, i) => (
             <div
               key={store}
-              className="elegant-shadow group flex flex-col items-center gap-3 rounded-2xl bg-background/85 px-6 py-8"
+              className="elegant-shadow group flex flex-col items-center gap-1.5 rounded-2xl bg-background/85 px-3 py-4"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full text-black">
-                <GiftIcon className="h-5 w-5" />
+              <span className="flex h-6 w-6 items-center justify-center rounded-full text-black">
+                <GiftIcon className="h-3 w-3" />
               </span>
               <AnimatedText
                 text={store}

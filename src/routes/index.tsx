@@ -54,7 +54,7 @@ function InvitationPage() {
             alt=""
             className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_15%]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/80" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/45 to-black/80" />
 
           <div className="relative z-10 mt-24 max-w-2xl md:mt-32">
             <AnimatedText
