@@ -1,18 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BottomNav } from "@/components/wedding/BottomNav";
 import { Footer } from "@/components/wedding/Footer";
-import { Navigation } from "@/components/wedding/Navigation";
 
 import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
+import { FaqSection } from "@/components/wedding/FaqSection";
 import bgImage from "@/assets/homepage.jpeg";
 import programImage from "@/assets/program.jpeg";
-import image2 from "@/assets/image2.jpeg";
 import groomstrad from "@/assets/groomstrad.jpeg";
 import bridestrad from "@/assets/bridestrad.jpeg";
 
 
-export const Route = createFileRoute("/invitation")({
+export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Invitation — Jason & Maranyane" },
@@ -31,24 +30,6 @@ const schedule = [
   { event: "The Wedding Celebration", detail: "Molapo Gardens, Mahalapye" },
 ];
 
-const giftRegistry = ["@Home", "Game", "Woolworths"];
-
-const navLinks = [
-  { label: "Details", href: "#details" },
-  { label: "Program", href: "#program" },
-  { label: "Dress Code", href: "#dress-code" },
-  { label: "Gifts", href: "#gifts" },
-  { label: "RSVP", href: "#rsvp" },
-  { label: "FAQs", href: "#faqs" },
-];
-
-const faqs = [
-  {
-    question: "Are kids welcome?",
-    answer: "As much as we love your little ones, this will be an adults-only celebration.",
-  }
-];
-
 function InvitationPage() {
   return (
     <div className="min-h-screen pb-8">
@@ -59,79 +40,41 @@ function InvitationPage() {
         <div className="absolute inset-0 bg-white/80" />
       </div>
 
-      <Navigation links={navLinks} />
       <main className="relative">
-        {/* Hero / Invitation — sized to fill exactly one screen on any device */}
-        <section id="invitation" className="relative flex h-dvh flex-col">
-          {/* Full-bleed photo with monogram overlay — guaranteed a majority share of the
-              viewport so it doesn't shrink away on shorter screens. */}
-          <div className="relative min-h-[65dvh] flex-1">
-            <img src={image2} alt="Jason and Maranyane" className="h-full w-full object-cover object-[50%_20%]" />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
-            <div className="absolute inset-x-0 bottom-8 flex flex-col items-center px-6 text-center text-white">
-              <div className="flex items-end gap-3 font-display leading-none">
-                <span className="text-6xl md:text-8xl">J</span>
-                <span className="mb-1 text-3xl italic md:text-5xl">&amp;</span>
-                <span className="text-6xl md:text-8xl">M</span>
-              </div>
-              <AnimatedText
-                as="p"
-                text="Jason & Maranyane"
-                className="mt-3 text-sm uppercase tracking-[0.35em] md:text-lg"
-              />
-            </div>
-          </div>
+        {/* Hero */}
+        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+          <img
+            src={bgImage}
+            alt=""
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/80" />
 
-          {/* Black intro panel — kept short so hero + panel never exceed one viewport. */}
-          <div className="shrink-0 bg-black px-6 pb-16 pt-8 text-center text-white">
-            <AnimatedText as="p" text="With joyful hearts" className="text-xs uppercase tracking-[0.3em] text-white/70" />
-            <AnimatedText
-              as="p"
-              text="Jason & Maranyane"
-              className="font-display mt-3 text-xl uppercase tracking-[0.15em] md:text-2xl"
-              delay={150}
-            />
-          </div>
-        </section>
-
-        {/* Welcome — the rest of the intro copy, verse, and countdown, previously part of the hero */}
-        <section className="bg-black px-6 py-12 text-center text-white md:py-16">
-          <div className="mx-auto max-w-2xl">
+          <div className="relative z-10 mt-24 max-w-2xl md:mt-32">
+            <AnimatedText as="p" text="With joyful hearts" className="text-xs uppercase tracking-[0.3em] text-white/85" />
+            <h1 className="font-display mt-4 text-4xl leading-tight text-white md:text-6xl">
+              <span className="sr-only">Jason &amp; Maranyane</span>
+              <span aria-hidden="true" className="inline-flex flex-wrap items-center justify-center gap-x-2">
+                <AnimatedText as="span" text="Jason" delay={150} />
+                <span
+                  className="animate-char-in inline-block font-display italic text-blush"
+                  style={{ animationDelay: "220ms" }}
+                >
+                  &amp;
+                </span>
+                <AnimatedText as="span" text="Maranyane" delay={260} />
+              </span>
+            </h1>
             <AnimatedText
               as="p"
               text="Together with their families, invite you to join them at the celebration of their marriage"
-              className="text-xs font-light uppercase tracking-[0.2em] text-white/80"
+              className="mt-4 text-xs font-light uppercase tracking-[0.2em] text-white/85"
+              delay={450}
             />
 
-            <AnimatedText
-              as="p"
-              text="We would be honored to have you join us as we celebrate the love we share. Your presence would mean the world to us as we continue this beautiful new chapter."
-              className="mt-6 font-body text-sm leading-relaxed text-white/85"
-              delay={150}
-            />
-
-            <div className="mt-6 border-t border-white/20 pt-6">
-              <span className="block font-display text-4xl leading-none text-white/30">&ldquo;</span>
-              <AnimatedText
-                as="p"
-                text="Therefore what God has joined together, let no one separate."
-                className="font-display -mt-2 text-lg italic leading-relaxed text-white/90 md:text-xl"
-              />
-              <AnimatedText as="p" text="Mark 10:9" className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60" delay={150} />
-            </div>
-
-            <div className="mt-6 border-t border-white/20 pt-6">
-              <AnimatedText
-                as="p"
-                text="Church Service and Traditional Wedding"
-                className="font-display text-base uppercase tracking-[0.2em] text-white md:text-lg"
-              />
-            </div>
-
-            {/* Countdown */}
-            <div className="mt-6 border-t border-white/20 pt-6">
+            <div className="animate-fade-up mt-6 border-t border-white/20 pt-6" style={{ animationDelay: "500ms" }}>
               <AnimatedText as="p" text="Counting down to" className="text-xs uppercase tracking-[0.3em] text-white/70" />
-              <AnimatedText as="p" text="October 31, 2026" className="font-display mt-1 text-lg" delay={150} />
+              <AnimatedText as="p" text="October 31, 2026" className="font-display mt-1 text-lg text-white" delay={150} />
               <div className="mt-4 flex justify-center">
                 <Countdown variant="dark" />
               </div>
@@ -152,7 +95,22 @@ function InvitationPage() {
               />
             </header>
 
-            <div className="mt-8">
+            <div className="mx-auto mt-8 max-w-xl">
+              <span className="block font-display text-4xl leading-none text-muted-foreground/40">&ldquo;</span>
+              <AnimatedText
+                as="p"
+                text="For this reason a man will leave his father and mother and be united to his wife, and the two will become one flesh. So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
+                className="font-display -mt-2 text-lg italic leading-relaxed text-foreground md:text-xl"
+              />
+              <AnimatedText
+                as="p"
+                text="Mark 10:7-9"
+                className="mt-2 text-xs uppercase tracking-[0.3em] text-muted-foreground"
+                delay={300}
+              />
+            </div>
+
+            <div className="mt-10 border-t border-border/40 pt-10">
               <AnimatedText as="p" text="When" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
               <AnimatedText
                 as="p"
@@ -213,7 +171,7 @@ function InvitationPage() {
               delay={150}
             />
 
-            <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-[21rem] gap-3 sm:grid-cols-2">
               <div className="overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
                 <div className="aspect-square overflow-hidden">
                   <img src={groomstrad} alt="Groom's traditional print" className="h-full w-full object-cover" />
@@ -243,66 +201,6 @@ function InvitationPage() {
                   />
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* Gifts */}
-          <section id="gifts" className="scroll-mt-20 bg-background/85 px-6 py-12 text-center backdrop-blur-sm md:px-12">
-            <AnimatedText as="p" text="With Gratitude" className="text-xs uppercase tracking-[0.3em] text-muted-foreground" />
-            <AnimatedText as="h3" text="Gift Registry" className="font-display mt-4 text-3xl font-semibold text-black" delay={150} />
-
-            <AnimatedText
-              as="p"
-              text="Your presence at our wedding is the greatest gift we could ask for. However, should you wish to bless us further, we kindly request vouchers from the stores below."
-              className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground"
-              delay={300}
-            />
-
-            <AnimatedText as="p" text="Vouchers" className="mt-10 text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              {giftRegistry.map((store) => (
-                <span
-                  key={store}
-                  className="rounded-full border border-orchid/40 bg-background/80 px-6 py-2 font-display text-base italic text-black"
-                >
-                  <AnimatedText text={store} />
-                </span>
-              ))}
-            </div>
-
-            <div className="mx-auto mt-10 max-w-md rounded-2xl border border-orchid/30 bg-background/85 px-6 py-6 text-left">
-              <AnimatedText
-                as="p"
-                text="For Bank Transfers"
-                className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground"
-              />
-              <dl className="mt-4 space-y-2 text-sm text-foreground">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Bank</dt>
-                  <dd className="font-medium"><AnimatedText text="FNB Botswana" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Account Name</dt>
-                  <dd className="font-medium"><AnimatedText text="Maranyane Marumo" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Account Number</dt>
-                  <dd className="font-medium"><AnimatedText text="62864156841" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Branch Name</dt>
-                  <dd className="font-medium"><AnimatedText text="The Mall" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Branch Code</dt>
-                  <dd className="font-medium"><AnimatedText text="283567" /></dd>
-                </div>
-              </dl>
-              <AnimatedText
-                as="p"
-                text="Reference: Use your name and surname"
-                className="mt-4 text-center text-xs uppercase tracking-[0.15em] text-muted-foreground"
-              />
             </div>
           </section>
 
@@ -342,54 +240,19 @@ function InvitationPage() {
                 delay={150}
               />
 
-              <div className="mx-auto mt-8 grid max-w-md gap-8 text-left sm:grid-cols-2">
-                <div>
-                  <AnimatedText as="p" text="Bride's Side" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-                  <div className="mt-3 space-y-2 text-sm text-foreground">
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Dineo" />
-                      <AnimatedText text="+267 73 209 745 / 71 546 792" className="text-muted-foreground" />
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Precious" />
-                      <AnimatedText text="+267 74 239 138" className="text-muted-foreground" />
-                    </div>
-                  </div>
+              <div className="mx-auto mt-8 max-w-sm space-y-2 text-left text-sm text-foreground">
+                <div className="flex justify-between gap-4">
+                  <AnimatedText text="Dineo" />
+                  <AnimatedText text="+267 73 209 745 / 71 546 792" className="text-muted-foreground" />
                 </div>
-
-                <div>
-                  <AnimatedText as="p" text="Groom's Side & Kgoroso" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-                  <div className="mt-3 space-y-2 text-sm text-foreground">
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Rowesai" />
-                      <AnimatedText text="+267 72 107 984" className="text-muted-foreground" />
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Rudo" />
-                      <AnimatedText text="+267 78 469 875" className="text-muted-foreground" />
-                    </div>
-                  </div>
+                <div className="flex justify-between gap-4">
+                  <AnimatedText text="Precious" />
+                  <AnimatedText text="+267 74 239 138" className="text-muted-foreground" />
                 </div>
               </div>
             </section>
 
-            <section id="faqs" className="mt-16 scroll-mt-20 text-left">
-              <AnimatedText as="h3" text="FAQs" className="text-center font-display text-2xl italic text-black" />
-              <div className="mx-auto mt-6 max-w-xl divide-y divide-border/50">
-                {faqs.map((faq) => (
-                  <details key={faq.question} className="group py-4">
-                    <summary className="cursor-pointer list-none font-body text-sm font-medium text-foreground marker:content-none">
-                      <AnimatedText text={faq.question} />
-                    </summary>
-                    <AnimatedText
-                      as="p"
-                      text={faq.answer}
-                      className="mt-2 text-sm leading-relaxed text-muted-foreground"
-                    />
-                  </details>
-                ))}
-              </div>
-            </section>
+            <FaqSection />
 
             <p className="mx-auto mt-16 max-w-xl text-xs leading-relaxed text-muted-foreground">
               <AnimatedText as="span" text="A Gentle Note on Privacy" className="font-semibold italic text-foreground" />

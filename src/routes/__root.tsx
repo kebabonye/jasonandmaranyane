@@ -10,7 +10,8 @@ import {
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import appCss from "../styles.css?url";
-import music from "@/assets/Music.mp3";
+
+const YOUTUBE_VIDEO_ID = "0vOY-CDzhmU";
 
 // Rendered by the router when a URL doesn't match any route.
 function NotFoundComponent() {
@@ -128,35 +129,89 @@ function SpeakerIcon({ muted, className }: { muted: boolean; className?: string 
   );
 }
 
-// Background wedding music: starts muted (the only autoplay browsers reliably allow)
-// and switches to audible on the first user interaction with the page.
+declare global {
+  interface Window {
+    YT: any;
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
+
+let youtubeApiPromise: Promise<void> | null = null;
+
+function loadYouTubeApi(): Promise<void> {
+  if (window.YT?.Player) return Promise.resolve();
+  if (youtubeApiPromise) return youtubeApiPromise;
+
+  youtubeApiPromise = new Promise((resolve) => {
+    const previous = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      previous?.();
+      resolve();
+    };
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(script);
+  });
+
+  return youtubeApiPromise;
+}
+
+// Background wedding music, played from a hidden YouTube embed: starts muted
+// (the only autoplay browsers reliably allow) and switches to audible on the
+// first user interaction with the page.
 function AudioPlayer() {
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const playerRef = useRef<any>(null);
+  const pendingUnmuteRef = useRef(false);
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    let cancelled = false;
+
+    loadYouTubeApi().then(() => {
+      if (cancelled) return;
+      playerRef.current = new window.YT.Player("youtube-audio-player", {
+        width: "0",
+        height: "0",
+        videoId: YOUTUBE_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: YOUTUBE_VIDEO_ID,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          modestbranding: 1,
+        },
+        events: {
+          onReady: (event: any) => {
+            if (pendingUnmuteRef.current) {
+              event.target.unMute();
+            } else {
+              event.target.mute();
+            }
+            event.target.playVideo();
+          },
+        },
+      });
+    });
 
     const unmute = () => {
-      audio.muted = false;
+      pendingUnmuteRef.current = true;
       setMuted(false);
-      // Some browsers (notably in-app webviews like WhatsApp/Instagram) block
-      // the initial muted autoplay entirely, leaving the element paused.
-      // Re-issue play() from within this user gesture to guarantee sound starts.
-      audio.play().catch(() => {});
+      const player = playerRef.current;
+      if (player) {
+        player.unMute();
+        player.playVideo();
+      }
     };
-
-    // Browsers block audible autoplay without a user gesture, so start muted
-    // (which is always allowed) and unmute on the first interaction.
-    audio.muted = true;
-    audio.play().catch(() => {});
 
     document.addEventListener("click", unmute, { once: true });
     document.addEventListener("touchstart", unmute, { once: true });
     document.addEventListener("scroll", unmute, { once: true });
 
     return () => {
+      cancelled = true;
       document.removeEventListener("click", unmute);
       document.removeEventListener("touchstart", unmute);
       document.removeEventListener("scroll", unmute);
@@ -164,18 +219,23 @@ function AudioPlayer() {
   }, []);
 
   function toggleMute() {
-    const audio = audioRef.current;
-    if (!audio) return;
-    audio.muted = !audio.muted;
-    setMuted(audio.muted);
-    if (!audio.muted) {
-      audio.play().catch(() => {});
+    const player = playerRef.current;
+    if (!player) return;
+    if (muted) {
+      pendingUnmuteRef.current = true;
+      player.unMute();
+      player.playVideo();
+      setMuted(false);
+    } else {
+      pendingUnmuteRef.current = false;
+      player.mute();
+      setMuted(true);
     }
   }
 
   return (
     <>
-      <audio ref={audioRef} src={music} loop />
+      <div id="youtube-audio-player" className="pointer-events-none fixed h-0 w-0 overflow-hidden opacity-0" aria-hidden="true" />
       <button
         onClick={toggleMute}
         aria-label={muted ? "Unmute music" : "Mute music"}

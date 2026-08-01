@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KgorosoRouteImport } from './routes/kgoroso'
-import { Route as InvitationRouteImport } from './routes/invitation'
-import { Route as HomeRouteImport } from './routes/home'
+import { Route as GiftRegistryRouteImport } from './routes/gift-registry'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -25,14 +25,14 @@ const KgorosoRoute = KgorosoRouteImport.update({
   path: '/kgoroso',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InvitationRoute = InvitationRouteImport.update({
-  id: '/invitation',
-  path: '/invitation',
+const GiftRegistryRoute = GiftRegistryRouteImport.update({
+  id: '/gift-registry',
+  path: '/gift-registry',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,38 +43,44 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/home': typeof HomeRoute
-  '/invitation': typeof InvitationRoute
+  '/gallery': typeof GalleryRoute
+  '/gift-registry': typeof GiftRegistryRoute
   '/kgoroso': typeof KgorosoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/home': typeof HomeRoute
-  '/invitation': typeof InvitationRoute
+  '/gallery': typeof GalleryRoute
+  '/gift-registry': typeof GiftRegistryRoute
   '/kgoroso': typeof KgorosoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/home': typeof HomeRoute
-  '/invitation': typeof InvitationRoute
+  '/gallery': typeof GalleryRoute
+  '/gift-registry': typeof GiftRegistryRoute
   '/kgoroso': typeof KgorosoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/invitation' | '/kgoroso' | '/sitemap.xml'
+  fullPaths: '/' | '/gallery' | '/gift-registry' | '/kgoroso' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/invitation' | '/kgoroso' | '/sitemap.xml'
-  id: '__root__' | '/' | '/home' | '/invitation' | '/kgoroso' | '/sitemap.xml'
+  to: '/' | '/gallery' | '/gift-registry' | '/kgoroso' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/gallery'
+    | '/gift-registry'
+    | '/kgoroso'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  HomeRoute: typeof HomeRoute
-  InvitationRoute: typeof InvitationRoute
+  GalleryRoute: typeof GalleryRoute
+  GiftRegistryRoute: typeof GiftRegistryRoute
   KgorosoRoute: typeof KgorosoRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -95,18 +101,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KgorosoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/invitation': {
-      id: '/invitation'
-      path: '/invitation'
-      fullPath: '/invitation'
-      preLoaderRoute: typeof InvitationRouteImport
+    '/gift-registry': {
+      id: '/gift-registry'
+      path: '/gift-registry'
+      fullPath: '/gift-registry'
+      preLoaderRoute: typeof GiftRegistryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,8 +127,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  HomeRoute: HomeRoute,
-  InvitationRoute: InvitationRoute,
+  GalleryRoute: GalleryRoute,
+  GiftRegistryRoute: GiftRegistryRoute,
   KgorosoRoute: KgorosoRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

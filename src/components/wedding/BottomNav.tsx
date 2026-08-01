@@ -28,9 +28,50 @@ function KgorosoIcon({ className }: { className?: string }) {
   );
 }
 
+function GiftIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <rect x="3" y="9" width="18" height="4" rx="1" strokeLinecap="round" />
+      <rect x="4" y="13" width="16" height="8" rx="1" strokeLinecap="round" />
+      <path d="M12 9v12" strokeLinecap="round" />
+      <path d="M12 9C9.5 9 8 7.657 8 6a2 2 0 1 1 4 0v3ZM12 9c2.5 0 4-1.343 4-3a2 2 0 1 0-4 0v3Z" />
+    </svg>
+  );
+}
+
+function GalleryIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" strokeLinecap="round" />
+      <circle cx="8.5" cy="9.5" r="1.5" />
+      <path d="M21 16l-5.5-5.5a1.5 1.5 0 0 0-2.12 0L4 19" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 const tabs = [
-  { label: "Traditional Wedding", to: "/invitation", icon: WeddingIcon },
+  { label: "Traditional Wedding", to: "/", icon: WeddingIcon },
   { label: "Kgoroso", to: "/kgoroso", icon: KgorosoIcon },
+  { label: "Gift Registry", to: "/gift-registry", icon: GiftIcon },
+  { label: "Gallery", to: "/gallery", icon: GalleryIcon },
 ] as const;
 
 export function BottomNav() {
@@ -46,7 +87,7 @@ export function BottomNav() {
           const active = pathname === tab.to;
           const Icon = tab.icon;
           return (
-            <li key={tab.to}>
+            <li key={tab.label}>
               <Link
                 to={tab.to}
                 className={`flex flex-col items-center justify-center gap-0.5 rounded-xl px-2.5 py-1 font-body text-[8px] uppercase tracking-[0.1em] transition-colors ${

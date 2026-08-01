@@ -1,7 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { BottomNav } from "@/components/wedding/BottomNav";
 import { Footer } from "@/components/wedding/Footer";
-import { Navigation } from "@/components/wedding/Navigation";
 
 import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
@@ -22,40 +21,9 @@ export const Route = createFileRoute("/kgoroso")({
   component: KgorosoPage,
 });
 
-const schedule = [{ time: "1:00 PM", event: "Luncheon" }];
-
-const giftRegistry = ["@Home", "Game", "Woolworths"];
-
-const navLinks = [
-  { label: "Details", href: "#details" },
-  { label: "Program", href: "#program" },
-  { label: "Dress Code", href: "#dress-code" },
-  { label: "Gifts", href: "#gifts" },
-  { label: "RSVP", href: "#rsvp" },
-  { label: "FAQs", href: "#faqs" },
-];
-
-const faqs = [
-  {
-    question: "Is there a gifts registry?",
-    answer:
-      "Your presence at our wedding is the greatest gift of all. If you'd still like to give something more, you may bless us with a gift. Please refer to the Registry tab for more information about our gift registries.",
-  },
-  {
-    question: "Is it alright to take pictures with our phones and cameras during the wedding?",
-    answer:
-      "Yes! We'd love for you to take photos and share them by scanning the QR codes that will be provided. However, please do give the official photographers the necessary space to capture pictures and videos for us. These will be shared with you. During the church service, photography and videography will be limited. An announcement will be made by the Facilitator to inform the congregation of the moments when photos and videos are allowed or not allowed. We kindly ask everyone to respect and follow these guidelines.",
-  },
-  {
-    question: "Is there transportation being provided from the matrimonial service to the venue?",
-    answer: "No, all guests are to make their own arrangements.",
-  },
-];
-
 function KgorosoPage() {
   return (
     <div className="min-h-screen bg-background pb-8">
-      <Navigation links={navLinks} />
       <main className="relative">
         {/* Hero — sized to fill exactly one screen on any device */}
         <section id="invitation" className="relative flex h-dvh flex-col">
@@ -76,36 +44,12 @@ function KgorosoPage() {
               />
             </div>
           </div>
-
-          {/* Black intro panel — kept short so hero + panel never exceed one viewport. */}
-          <div className="shrink-0 bg-black px-6 pb-16 pt-8 text-center text-white">
-            <AnimatedText as="p" text="With joyful hearts" className="text-xs uppercase tracking-[0.3em] text-white/70" />
-            <AnimatedText
-              as="p"
-              text="Jason & Maranyane"
-              className="font-display mt-3 text-xl uppercase tracking-[0.15em] md:text-2xl"
-              delay={150}
-            />
-          </div>
         </section>
 
-        {/* Welcome — the rest of the intro copy, verse, and countdown, previously part of the hero */}
+        {/* Welcome — the verse and countdown, previously part of the hero */}
         <section className="bg-black px-6 py-12 text-center text-white md:py-16">
           <div className="mx-auto max-w-2xl">
-            <AnimatedText
-              as="p"
-              text="Together with their families, invite you to join them for their Kgoroso"
-              className="text-xs font-light uppercase tracking-[0.2em] text-white/80"
-            />
-
-            <AnimatedText
-              as="p"
-              text="We would be honored to have you join us as we celebrate the love we share. Your presence would mean the world to us as we continue this beautiful new chapter."
-              className="mt-6 font-body text-sm leading-relaxed text-white/85"
-              delay={150}
-            />
-
-            <div className="mt-6 border-t border-white/20 pt-6">
+            <div>
               <span className="block font-display text-4xl leading-none text-white/30">&ldquo;</span>
               <AnimatedText
                 as="p"
@@ -161,27 +105,6 @@ function KgorosoPage() {
           </div>
         </section>
 
-        <section id="program" className="relative scroll-mt-20 overflow-hidden bg-wash py-16">
-          <div className="relative z-10 mx-auto max-w-4xl px-6">
-            <AnimatedText as="h3" text="Program" className="font-display text-center text-3xl italic text-black" />
-            <div className="mx-auto mt-8 max-w-2xl">
-              {schedule.map((item) => (
-                <div
-                  key={item.event}
-                  className="flex items-center gap-6 border-b border-border/40 py-5 last:border-b-0"
-                >
-                  <span className="w-24 shrink-0 font-body text-sm font-medium text-black">
-                    <AnimatedText text={item.time} />
-                  </span>
-                  <span className="font-display text-lg text-foreground">
-                    <AnimatedText text={item.event} delay={150} />
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="dress-code" className="relative overflow-hidden py-16 px-6 text-center scroll-mt-20">
           <div className="mx-auto max-w-4xl">
             <AnimatedText as="h3" text="Traditional Prints" className="font-display text-3xl italic text-black" />
@@ -192,7 +115,7 @@ function KgorosoPage() {
               delay={150}
             />
 
-            <div className="mx-auto mt-10 max-w-xs overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
+            <div className="mx-auto mt-10 max-w-[10rem] overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
               <div className="aspect-square overflow-hidden">
                 <img src={kgorosoPrint} alt="Kgoroso traditional print" className="h-full w-full object-cover" />
               </div>
@@ -205,67 +128,6 @@ function KgorosoPage() {
                   delay={150}
                 />
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="gifts" className="relative overflow-hidden py-16 px-6 text-center scroll-mt-20">
-          <div className="mx-auto max-w-4xl">
-            <AnimatedText as="p" text="With Gratitude" className="text-xs uppercase tracking-[0.3em] text-muted-foreground" />
-            <AnimatedText as="h3" text="Gift Registry" className="font-display mt-4 text-3xl font-semibold text-black" delay={150} />
-
-            <AnimatedText
-              as="p"
-              text="Your presence at our wedding is the greatest gift we could ask for. However, should you wish to bless us further, we kindly request vouchers from the stores below."
-              className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground"
-              delay={300}
-            />
-
-            <AnimatedText as="p" text="Vouchers" className="mt-10 text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              {giftRegistry.map((store) => (
-                <span
-                  key={store}
-                  className="rounded-full border border-orchid/40 bg-background/80 px-6 py-2 font-display text-base italic text-black"
-                >
-                  <AnimatedText text={store} />
-                </span>
-              ))}
-            </div>
-
-            <div className="mx-auto mt-10 max-w-md rounded-2xl border border-orchid/30 bg-background/85 px-6 py-6 text-left">
-              <AnimatedText
-                as="p"
-                text="For Bank Transfers"
-                className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground"
-              />
-              <dl className="mt-4 space-y-2 text-sm text-foreground">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Bank</dt>
-                  <dd className="font-medium"><AnimatedText text="FNB Botswana" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Account Name</dt>
-                  <dd className="font-medium"><AnimatedText text="Maranyane Marumo" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Account Number</dt>
-                  <dd className="font-medium"><AnimatedText text="62864156841" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Branch Name</dt>
-                  <dd className="font-medium"><AnimatedText text="The Mall" /></dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted-foreground">Branch Code</dt>
-                  <dd className="font-medium"><AnimatedText text="283567" /></dd>
-                </div>
-              </dl>
-              <AnimatedText
-                as="p"
-                text="Reference: Use your name and surname"
-                className="mt-4 text-center text-xs uppercase tracking-[0.15em] text-muted-foreground"
-              />
             </div>
           </div>
         </section>
@@ -307,53 +169,36 @@ function KgorosoPage() {
                 delay={150}
               />
 
-              <div className="mx-auto mt-8 grid max-w-md gap-8 text-left sm:grid-cols-2">
-                <div>
-                  <AnimatedText as="p" text="Bride's Side" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-                  <div className="mt-3 space-y-2 text-sm text-foreground">
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Dineo" />
-                      <AnimatedText text="+267 73 209 745 / 71 546 792" className="text-muted-foreground" />
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Precious" />
-                      <AnimatedText text="+267 74 239 138" className="text-muted-foreground" />
-                    </div>
+              <div className="mx-auto mt-8 max-w-xs text-left">
+                <AnimatedText as="p" text="Groom's Side & Kgoroso" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
+                <div className="mt-3 space-y-2 text-sm text-foreground">
+                  <div className="flex justify-between gap-4">
+                    <AnimatedText text="Rowesai" />
+                    <AnimatedText text="+267 72 107 984" className="text-muted-foreground" />
                   </div>
-                </div>
-
-                <div>
-                  <AnimatedText as="p" text="Groom's Side & Kgoroso" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
-                  <div className="mt-3 space-y-2 text-sm text-foreground">
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Rowesai" />
-                      <AnimatedText text="+267 72 107 984" className="text-muted-foreground" />
-                    </div>
-                    <div className="flex justify-between gap-4">
-                      <AnimatedText text="Rudo" />
-                      <AnimatedText text="+267 78 469 875" className="text-muted-foreground" />
-                    </div>
+                  <div className="flex justify-between gap-4">
+                    <AnimatedText text="Rudo" />
+                    <AnimatedText text="+267 78 469 875" className="text-muted-foreground" />
                   </div>
                 </div>
               </div>
             </section>
 
-            <section id="faqs" className="mt-16 scroll-mt-20 text-left">
-              <AnimatedText as="h3" text="FAQs" className="text-center font-display text-2xl italic text-black" />
-              <div className="mx-auto mt-6 max-w-xl divide-y divide-border/50">
-                {faqs.map((faq) => (
-                  <details key={faq.question} className="group py-4">
-                    <summary className="cursor-pointer list-none font-body text-sm font-medium text-foreground marker:content-none">
-                      <AnimatedText text={faq.question} />
-                    </summary>
-                    <AnimatedText
-                      as="p"
-                      text={faq.answer}
-                      className="mt-2 text-sm leading-relaxed text-muted-foreground"
-                    />
-                  </details>
-                ))}
-              </div>
+            <section id="faqs" className="mt-16 scroll-mt-20 text-center">
+              <AnimatedText as="h3" text="FAQs" className="font-display text-2xl italic text-black" />
+              <AnimatedText
+                as="p"
+                text="Answers to common questions (gifts, photography, transport, and more) are on our main invitation page."
+                className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground"
+                delay={150}
+              />
+              <Link
+                to="/"
+                hash="faqs"
+                className="mt-4 inline-block text-xs uppercase tracking-[0.25em] text-plum underline underline-offset-4 transition-colors hover:text-black"
+              >
+                View FAQs
+              </Link>
             </section>
 
             <p className="mx-auto mt-16 max-w-xl text-xs leading-relaxed text-muted-foreground">
