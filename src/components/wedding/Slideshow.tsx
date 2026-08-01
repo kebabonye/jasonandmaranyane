@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-const CENTER_WIDTH = 42; // % of container width
-const SIDE_WIDTH = 27; // % of container width
-const STEP_OFFSET = 36; // % of container width between slide positions
+const CENTER_WIDTH = 47; // % of container width
+const SIDE_WIDTH = 30; // % of container width
+const STEP_OFFSET = 39; // % of container width between slide positions
 
 export function Slideshow({
   images,
@@ -24,7 +24,7 @@ export function Slideshow({
   const length = images.length;
 
   return (
-    <div className="mx-auto mt-10 max-w-3xl px-4">
+    <div className="mx-auto mt-6 max-w-4xl px-4">
       <div className="relative mx-auto aspect-[1.7857/1] w-full overflow-hidden">
         {images.map((src, index) => {
           // Shortest signed distance from the center slot, wrapping around the ends

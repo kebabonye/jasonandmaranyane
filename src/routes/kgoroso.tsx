@@ -47,7 +47,7 @@ function KgorosoPage() {
         </section>
 
         {/* Welcome — the verse and countdown, previously part of the hero */}
-        <section className="bg-black px-6 py-12 text-center text-white md:py-16">
+        <section className="bg-black px-6 py-8 text-center text-white md:py-10">
           <div className="mx-auto max-w-2xl">
             <div>
               <span className="block font-display text-4xl leading-none text-white/30">&ldquo;</span>
@@ -71,8 +71,8 @@ function KgorosoPage() {
         </section>
 
         {/* Details */}
-        <section id="details" className="mx-auto max-w-4xl px-6 py-20 scroll-mt-20">
-          <div className="flex flex-col items-center gap-10 md:flex-row md:items-center md:gap-16">
+        <section id="details" className="mx-auto max-w-4xl px-6 py-12 scroll-mt-20">
+          <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:gap-12">
             <div className="relative aspect-[3/4] w-56 shrink-0 sm:w-64">
               <div className="absolute inset-0 overflow-hidden rounded-t-full shadow-lg">
                 <img src={image4} alt="Jason and Maranyane" className="h-full w-full object-cover" />
@@ -96,7 +96,7 @@ function KgorosoPage() {
                 <AnimatedText as="p" text="Luncheon at 1:00 PM (1300 HRS)" className="mt-1 text-muted-foreground" delay={300} />
               </div>
 
-              <div className="mt-10">
+              <div className="mt-6">
                 <AnimatedText as="p" text="Where" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
                 <AnimatedText as="p" text="Plot 11155" className="font-display mt-2 text-3xl text-foreground" delay={150} />
                 <AnimatedText as="p" text="SamSam Ward, Serowe" className="mt-2 text-muted-foreground" delay={300} />
@@ -105,7 +105,7 @@ function KgorosoPage() {
           </div>
         </section>
 
-        <section id="dress-code" className="relative overflow-hidden py-16 px-6 text-center scroll-mt-20">
+        <section id="dress-code" className="relative overflow-hidden py-10 px-6 text-center scroll-mt-20">
           <div className="mx-auto max-w-4xl">
             <AnimatedText as="h3" text="Traditional Prints" className="font-display text-3xl italic text-black" />
             <AnimatedText
@@ -115,7 +115,7 @@ function KgorosoPage() {
               delay={150}
             />
 
-            <div className="mx-auto mt-10 max-w-[10rem] overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
+            <div className="mx-auto mt-6 max-w-[10rem] overflow-hidden rounded-2xl border border-border/60 bg-white shadow-sm">
               <div className="aspect-square overflow-hidden">
                 <img src={kgorosoPrint} alt="Kgoroso traditional print" className="h-full w-full object-cover" />
               </div>
@@ -132,7 +132,7 @@ function KgorosoPage() {
           </div>
         </section>
 
-        <section className="bg-white py-16">
+        <section className="bg-white py-10">
           <div className="mx-auto max-w-2xl px-6 text-center">
             {/* RSVP */}
             <section id="rsvp" className="scroll-mt-20">
@@ -146,7 +146,7 @@ function KgorosoPage() {
                 delay={300}
               />
 
-              <div className="mt-10">
+              <div className="mt-6">
                 <a
                   href="https://forms.gle/CpChXe8t76zyVran8"
                   target="_blank"
@@ -157,10 +157,10 @@ function KgorosoPage() {
                 </a>
               </div>
 
-             
+
             </section>
 
-            <section id="enquiries" className="mt-16 scroll-mt-20">
+            <section id="enquiries" className="mt-10 scroll-mt-20">
               <AnimatedText as="h3" text="Need Assistance?" className="font-display text-2xl italic text-black" />
               <AnimatedText
                 as="p"
@@ -169,7 +169,7 @@ function KgorosoPage() {
                 delay={150}
               />
 
-              <div className="mx-auto mt-8 max-w-xs text-left">
+              <div className="mx-auto mt-6 max-w-xs text-left">
                 <AnimatedText as="p" text="Groom's Side & Kgoroso" className="text-xs uppercase tracking-[0.2em] text-muted-foreground" />
                 <div className="mt-3 space-y-2 text-sm text-foreground">
                   <div className="flex justify-between gap-4">
@@ -184,7 +184,7 @@ function KgorosoPage() {
               </div>
             </section>
 
-            <section id="faqs" className="mt-16 scroll-mt-20 text-center">
+            <section id="faqs" className="mt-10 scroll-mt-20 text-center">
               <AnimatedText as="h3" text="FAQs" className="font-display text-2xl italic text-black" />
               <AnimatedText
                 as="p"
@@ -201,7 +201,7 @@ function KgorosoPage() {
               </Link>
             </section>
 
-            <p className="mx-auto mt-16 max-w-xl text-xs leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-10 max-w-xl text-xs leading-relaxed text-muted-foreground">
               <AnimatedText as="span" text="A Gentle Note on Privacy" className="font-semibold italic text-foreground" />
               <AnimatedText
                 as="span"

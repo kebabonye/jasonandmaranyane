@@ -82,7 +82,7 @@ function CopyButton({ value }: { value: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="inline-flex items-center gap-1 rounded-full border border-orchid/30 px-2 py-0.5 text-[10px] uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:border-orchid hover:text-black"
+      className="inline-flex items-center gap-1 rounded-full bg-orchid/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:bg-orchid/20 hover:text-black"
     >
       {copied ? "Copied" : "Copy"}
     </button>
@@ -102,12 +102,18 @@ function Ornament() {
 function GiftRegistryPage() {
   return (
     <div className="min-h-screen pb-8">
-      <section className="relative scroll-mt-20 overflow-hidden bg-background px-6 pb-16 pt-16 text-center">
+      <section className="relative scroll-mt-20 overflow-hidden bg-background px-6 pb-10 pt-10 text-center">
         <img
           src={ribbon}
           alt=""
           aria-hidden="true"
           className="pointer-events-none absolute -left-6 -top-4 w-24 -rotate-6 opacity-90 sm:-left-8 sm:-top-6 sm:w-32 md:-left-10 md:-top-8 md:w-40"
+        />
+        <img
+          src={ribbon}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-6 -top-4 w-24 rotate-6 scale-x-[-1] opacity-90 sm:-right-8 sm:-top-6 sm:w-32 md:-right-10 md:-top-8 md:w-40"
         />
 
         <div className="relative z-10">
@@ -128,22 +134,22 @@ function GiftRegistryPage() {
         <AnimatedText
           as="p"
           text="Your presence at our celebrations is the greatest gift we could ask for. However, should you wish to bless us further, we kindly request vouchers from the stores below."
-          className="mx-auto mt-8 max-w-xl leading-relaxed text-muted-foreground"
+          className="mx-auto mt-6 max-w-xl leading-relaxed text-muted-foreground"
           delay={300}
         />
 
         <AnimatedText
           as="p"
           text="Vouchers"
-          className="mt-12 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+          className="mt-8 text-xs uppercase tracking-[0.2em] text-muted-foreground"
         />
-        <div className="mx-auto mt-6 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mx-auto mt-4 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-3">
           {giftRegistry.map((store, i) => (
             <div
               key={store}
-              className="elegant-shadow group flex flex-col items-center gap-3 rounded-2xl border border-orchid/25 bg-background/85 px-6 py-8 transition-colors hover:border-orchid/60"
+              className="elegant-shadow group flex flex-col items-center gap-3 rounded-2xl bg-background/85 px-6 py-8"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-orchid/30 text-black transition-colors group-hover:border-orchid">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full text-black">
                 <GiftIcon className="h-5 w-5" />
               </span>
               <AnimatedText
@@ -155,8 +161,8 @@ function GiftRegistryPage() {
           ))}
         </div>
 
-        <div className="mx-auto mt-14 max-w-md overflow-hidden rounded-2xl border border-orchid/30 bg-background/85 text-left elegant-shadow">
-          <div className="flex items-center justify-center gap-2 border-b border-orchid/20 bg-orchid/5 px-6 py-4">
+        <div className="mx-auto mt-10 max-w-md overflow-hidden rounded-2xl bg-background/85 text-left elegant-shadow">
+          <div className="flex items-center justify-center gap-2 bg-orchid/5 px-6 py-4">
             <BankIcon className="h-4 w-4 text-muted-foreground" />
             <AnimatedText
               as="p"
@@ -178,7 +184,7 @@ function GiftRegistryPage() {
           <AnimatedText
             as="p"
             text="Reference: Use your name and surname"
-            className="border-t border-orchid/20 bg-orchid/5 py-3 text-center text-xs uppercase tracking-[0.15em] text-muted-foreground"
+            className="bg-orchid/5 py-3 text-center text-xs uppercase tracking-[0.15em] text-muted-foreground"
           />
         </div>
       </section>

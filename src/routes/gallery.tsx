@@ -22,7 +22,7 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <div className="min-h-screen pb-8">
-      <section id="gallery" className="scroll-mt-20 bg-background px-6 pb-16 pt-16 text-center">
+      <section id="gallery" className="scroll-mt-20 bg-background px-6 pb-10 pt-10 text-center">
         <AnimatedText as="p" text="Our Moments" className="text-xs uppercase tracking-[0.3em] text-muted-foreground" />
         <AnimatedText
           as="h2"
@@ -33,7 +33,7 @@ function GalleryPage() {
         <Slideshow images={galleryImages} />
       </section>
 
-      <section id="share-photos" className="scroll-mt-20 bg-black px-6 py-16 text-center text-white">
+      <section id="share-photos" className="scroll-mt-20 bg-black px-6 py-10 text-center text-white">
         <AnimatedText as="p" text="Share Your Photos" className="text-xs uppercase tracking-[0.3em] text-white/70" />
         <AnimatedText
           as="h2"
