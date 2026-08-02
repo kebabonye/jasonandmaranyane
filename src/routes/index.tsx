@@ -31,6 +31,7 @@ export const Route = createFileRoute("/")({
 });
 
 const schedule = [
+  { event: "Church Service" },
   { event: "Photography" },
   { event: "The Wedding Celebration", detail: "Molapo Gardens, Mahalapye" },
 ];

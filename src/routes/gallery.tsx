@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { QRCodeSVG } from "qrcode.react";
 import { BottomNav } from "@/components/wedding/BottomNav";
 import { Slideshow } from "@/components/wedding/Slideshow";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
@@ -8,6 +9,7 @@ import image3 from "@/assets/image3.jpeg";
 import image4 from "@/assets/image4.png";
 
 const galleryImages = [image1, image2, image3, image4];
+const sharedAlbumUrl = "https://photos.app.goo.gl/iHryjNq78U5T1PqY7";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -48,9 +50,13 @@ function GalleryPage() {
           delay={300}
         />
 
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col items-center gap-6">
+          <div className="rounded-2xl bg-white p-3">
+            <QRCodeSVG value={sharedAlbumUrl} size={160} />
+          </div>
+
           <a
-            href="https://photos.app.goo.gl/iHryjNq78U5T1PqY7"
+            href={sharedAlbumUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-white transition hover:bg-white/20"
