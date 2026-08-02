@@ -31,10 +31,27 @@ export const Route = createFileRoute("/")({
 });
 
 const schedule = [
-  { event: "Church Service", detail: "Spiritual Healing Church, Mahalapye" },
   { event: "Photography" },
   { event: "The Wedding Celebration", detail: "Molapo Gardens, Mahalapye" },
 ];
+
+function MapPinIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path d="M12 21s7-6.582 7-11.5A7 7 0 0 0 5 9.5C5 14.418 12 21 12 21Z" strokeLinecap="round" />
+      <circle cx="12" cy="9.5" r="2.25" />
+    </svg>
+  );
+}
 
 function InvitationPage() {
   return (
@@ -182,6 +199,15 @@ function InvitationPage() {
                 className="mt-2 text-muted-foreground"
                 delay={300}
               />
+              <a
+                href="https://www.google.com/maps?q=-23.130278,26.845694"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-foreground/30 px-4 py-2 text-xs uppercase tracking-[0.15em] text-foreground transition-colors hover:border-foreground hover:bg-foreground hover:text-primary-foreground"
+              >
+                <MapPinIcon className="h-3.5 w-3.5" />
+                View on Map
+              </a>
             </div>
           </section>
 

@@ -49,9 +49,14 @@ function GalleryPage() {
         />
 
         <div className="mt-8">
-          <span className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-white/60">
-            Google Photos link coming soon
-          </span>
+          <a
+            href="https://photos.app.goo.gl/iHryjNq78U5T1PqY7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-white transition hover:bg-white/20"
+          >
+            Add To Our Album
+          </a>
         </div>
       </section>
 
