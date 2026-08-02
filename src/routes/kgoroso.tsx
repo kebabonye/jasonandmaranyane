@@ -148,7 +148,7 @@ function KgorosoPage() {
 
               <div className="mt-6">
                 <a
-                  href="https://forms.gle/CpChXe8t76zyVran8"
+                  href="https://forms.gle/fTeL98NoZBZYq5EU6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-foreground bg-foreground px-10 py-4 font-body text-xs uppercase tracking-[0.25em] text-primary-foreground transition-colors hover:bg-foreground/90"
