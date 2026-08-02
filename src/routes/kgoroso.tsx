@@ -285,12 +285,7 @@ function KgorosoPage() {
               />
 
               <div className="mx-auto mt-6 max-w-xs text-left">
-                <AnimatedText
-                  as="p"
-                  text="Groom's Side & Kgoroso"
-                  className="text-xs uppercase tracking-[0.2em] text-muted-foreground"
-                />
-                <div className="mt-3 space-y-2 text-sm text-foreground">
+                <div className="space-y-2 text-sm text-foreground">
                   <div className="flex justify-between gap-4">
                     <AnimatedText text="Rowesai" />
                     <AnimatedText text="+267 72 107 984" className="text-muted-foreground" />
@@ -306,7 +301,7 @@ function KgorosoPage() {
             <section id="faqs" className="mt-10 scroll-mt-20 text-center">
               <AnimatedText
                 as="h3"
-                text="FAQs"
+                text="FAQ"
                 className="font-display text-2xl italic text-black"
               />
               <AnimatedText
