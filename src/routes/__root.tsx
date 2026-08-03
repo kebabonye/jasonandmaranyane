@@ -129,35 +129,29 @@ function SpeakerIcon({ muted, className }: { muted: boolean; className?: string 
   );
 }
 
-// Background wedding music, played from a hidden <audio> element: starts
-// muted (the only autoplay browsers reliably allow) and switches to audible
-// on the first user interaction with the page.
+// Background wedding music, played from a hidden <audio> element. Browsers
+// block audible autoplay until the visitor interacts with the page, so a
+// full-screen "tap to enter" overlay greets every fresh page load — tapping
+// it is the interaction that lets the music start playing immediately,
+// rather than waiting on an incidental scroll or click elsewhere.
 function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [muted, setMuted] = useState(true);
+  const [showOverlay, setShowOverlay] = useState(true);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.play().catch(() => {});
-
-    const unmute = () => {
-      audio.muted = false;
-      setMuted(false);
-      audio.play().catch(() => {});
-    };
-
-    document.addEventListener("click", unmute, { once: true });
-    document.addEventListener("touchstart", unmute, { once: true });
-    document.addEventListener("scroll", unmute, { once: true });
-
-    return () => {
-      document.removeEventListener("click", unmute);
-      document.removeEventListener("touchstart", unmute);
-      document.removeEventListener("scroll", unmute);
-    };
+    audioRef.current?.play().catch(() => {});
   }, []);
+
+  function enter() {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.muted = false;
+      audio.play().catch(() => {});
+    }
+    setMuted(false);
+    setShowOverlay(false);
+  }
 
   function toggleMute() {
     const audio = audioRef.current;
@@ -175,6 +169,22 @@ function AudioPlayer() {
   return (
     <>
       <audio ref={audioRef} src={musicSrc} loop autoPlay muted playsInline preload="auto" />
+
+      {showOverlay && (
+        <button
+          type="button"
+          onClick={enter}
+          aria-label="Tap to enter"
+          className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-black/80 text-white backdrop-blur-sm"
+        >
+          <span className="font-display text-3xl italic">Jason &amp; Maranyane</span>
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40">
+            <SpeakerIcon muted={false} className="h-5 w-5" />
+          </span>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/70">Tap to enter</span>
+        </button>
+      )}
+
       <button
         onClick={toggleMute}
         aria-label={muted ? "Unmute music" : "Mute music"}
