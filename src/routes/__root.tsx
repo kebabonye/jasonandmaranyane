@@ -92,6 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preload", href: musicSrc, as: "audio" },
     ],
   }),
   shellComponent: RootShell,
@@ -173,7 +174,7 @@ function AudioPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} src={musicSrc} loop autoPlay muted playsInline />
+      <audio ref={audioRef} src={musicSrc} loop autoPlay muted playsInline preload="auto" />
       <button
         onClick={toggleMute}
         aria-label={muted ? "Unmute music" : "Mute music"}
