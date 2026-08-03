@@ -6,6 +6,7 @@ import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
 import { FaqSection } from "@/components/wedding/FaqSection";
 import bgImage from "@/assets/homepage.jpeg";
+import image3 from "@/assets/image3.jpeg";
 import programImage from "@/assets/program.jpeg";
 import groomstrad from "@/assets/groomstrad.jpeg";
 import bridestrad from "@/assets/bridestrad.jpeg";
@@ -68,7 +69,7 @@ function InvitationPage() {
         {/* Hero */}
         <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
           <img
-            src={bgImage}
+            src={image3}
             alt=""
             className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_15%]"
           />
@@ -119,7 +120,7 @@ function InvitationPage() {
                 delay={150}
               />
               <div className="mt-4 flex justify-center">
-                <Countdown variant="dark" />
+                <Countdown variant="white" />
               </div>
             </div>
           </div>
@@ -173,12 +174,6 @@ function InvitationPage() {
                 text="Saturday, October 31, 2026"
                 className="font-display mt-2 text-3xl text-foreground"
                 delay={150}
-              />
-              <AnimatedText
-                as="p"
-                text="Celebration time to be confirmed."
-                className="mt-1 text-sm text-muted-foreground"
-                delay={300}
               />
             </div>
 
@@ -368,7 +363,7 @@ function InvitationPage() {
                 <div className="flex justify-between gap-4">
                   <AnimatedText text="Dineo" />
                   <AnimatedText
-                    text="+267 73 209 745 / 71 546 792"
+                    text="+267 71 546 792"
                     className="text-muted-foreground"
                   />
                 </div>

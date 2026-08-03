@@ -4,7 +4,14 @@ import { BottomNav } from "@/components/wedding/BottomNav";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
 import ribbon from "@/assets/ribbon.png";
 
-const giftRegistry = ["@Home", "Game", "Woolworths"];
+const giftRegistry = [
+  "@Home",
+  "Cotton Cloud",
+  "Mr. Price Home",
+  "Carrol Boyes",
+  "Woolworths",
+  "Game",
+];
 
 const bankDetails = [
   { label: "Bank", value: "FNB Botswana" },
@@ -25,26 +32,6 @@ export const Route = createFileRoute("/gift-registry")({
   }),
   component: GiftRegistryPage,
 });
-
-function GiftIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      aria-hidden="true"
-    >
-      <rect x="3" y="9" width="18" height="4" rx="1" strokeLinecap="round" />
-      <rect x="4" y="13" width="16" height="8" rx="1" strokeLinecap="round" />
-      <path d="M12 9v12" strokeLinecap="round" />
-      <path d="M12 9C9.5 9 8 7.657 8 6a2 2 0 1 1 4 0v3ZM12 9c2.5 0 4-1.343 4-3a2 2 0 1 0-4 0v3Z" />
-    </svg>
-  );
-}
 
 function BankIcon({ className }: { className?: string }) {
   return (
@@ -143,25 +130,27 @@ function GiftRegistryPage() {
           text="Vouchers"
           className="mt-8 text-xs uppercase tracking-[0.2em] text-muted-foreground"
         />
-        <div className="mx-auto mt-4 grid max-w-xl grid-cols-1 gap-2 sm:grid-cols-3">
+        <div className="mx-auto mt-4 flex max-w-xl flex-wrap items-center justify-center gap-2">
           {giftRegistry.map((store, i) => (
             <div
               key={store}
-              className="elegant-shadow group flex flex-col items-center gap-1.5 rounded-2xl bg-background/85 px-3 py-4"
+              className="elegant-shadow rounded-full border border-gray-200 bg-background/85 px-4 py-2"
             >
-              <span className="flex h-6 w-6 items-center justify-center rounded-full text-black">
-                <GiftIcon className="h-3 w-3" />
-              </span>
               <AnimatedText
                 text={store}
-                className="font-display text-lg italic text-black"
+                className="font-display text-sm italic text-black"
                 delay={100 * i}
               />
             </div>
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-md overflow-hidden rounded-2xl bg-background/85 text-left elegant-shadow">
+        <AnimatedText
+          as="p"
+          text="Or simply EFT"
+          className="mt-10 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+        />
+        <div className="mx-auto mt-4 max-w-md overflow-hidden rounded-2xl bg-background/85 text-left elegant-shadow">
           <div className="flex items-center justify-center gap-2 bg-orchid/5 px-6 py-4">
             <BankIcon className="h-4 w-4 text-muted-foreground" />
             <AnimatedText

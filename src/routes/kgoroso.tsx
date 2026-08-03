@@ -75,7 +75,7 @@ function KgorosoPage() {
         </section>
 
         {/* Welcome — the verse and countdown, previously part of the hero */}
-        <section className="bg-black px-6 py-8 text-center text-white md:py-10">
+        <section className="bg-neutral-800 px-6 py-8 text-center text-white md:py-10">
           <div className="mx-auto max-w-2xl">
             <div>
               <span className="block font-display text-4xl leading-none text-white/30">
@@ -108,7 +108,7 @@ function KgorosoPage() {
                 delay={150}
               />
               <div className="mt-4 flex justify-center">
-                <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="dark" />
+                <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="white" />
               </div>
             </div>
           </div>

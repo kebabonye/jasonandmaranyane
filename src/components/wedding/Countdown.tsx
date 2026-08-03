@@ -24,7 +24,7 @@ export function Countdown({
   variant = "light",
   targetDate = WHITE_WEDDING_DATE,
 }: {
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "white";
   targetDate?: string;
 }) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -53,18 +53,21 @@ export function Countdown({
   const boxClass =
     variant === "dark"
       ? "border-white/30 text-white"
-      : "border-border/60 text-plum";
-  const labelClass = variant === "dark" ? "text-white/70" : "text-muted-foreground";
+      : variant === "white"
+        ? "border-black/10 bg-white text-black"
+        : "border-border/60 text-plum";
+  const labelClass =
+    variant === "dark" ? "text-white/70" : variant === "white" ? "text-black/60" : "text-muted-foreground";
 
   return (
     <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-4">
       {units.map((unit) => (
         <div
           key={unit.label}
-          className={`flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg border sm:h-20 sm:w-20 ${boxClass}`}
+          className={`flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-lg border sm:h-24 sm:w-24 ${boxClass}`}
         >
-          <span className="font-display text-lg sm:text-2xl">{String(unit.value).padStart(2, "0")}</span>
-          <span className={`text-[9px] uppercase tracking-[0.1em] sm:text-[10px] sm:tracking-[0.15em] ${labelClass}`}>
+          <span className="font-display text-2xl sm:text-3xl">{String(unit.value).padStart(2, "0")}</span>
+          <span className={`text-[10px] uppercase tracking-[0.1em] sm:text-xs sm:tracking-[0.15em] ${labelClass}`}>
             {unit.label}
           </span>
         </div>
