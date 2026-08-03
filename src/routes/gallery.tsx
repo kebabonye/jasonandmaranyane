@@ -6,9 +6,25 @@ import { AnimatedText } from "@/components/wedding/AnimatedText";
 import image1 from "@/assets/image1.jpeg";
 import image2 from "@/assets/image2.jpeg";
 import image3 from "@/assets/image3.jpeg";
-import image4 from "@/assets/image4.png";
+import image5 from "@/assets/image5.jpeg";
+import image6 from "@/assets/image6.jpg";
+import image7 from "@/assets/image7.jpg";
+import image8 from "@/assets/image8.jpg";
+import image9 from "@/assets/image9.jpg";
+import image10 from "@/assets/image10.jpg";
 
-const galleryImages = [image1, image2, image3, image4];
+const galleryImages = [
+  image2,
+  image7,
+  image8,
+  image10,
+  image6,
+  image1,
+  image5,
+  image2,
+  image3,
+  image9,
+];
 const sharedAlbumUrl = "https://photos.app.goo.gl/iHryjNq78U5T1PqY7";
 
 export const Route = createFileRoute("/gallery")({
