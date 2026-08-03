@@ -32,9 +32,12 @@ export const Route = createFileRoute("/")({
 });
 
 const schedule = [
-  { event: "Church Service" },
-  { event: "Photography" },
-  { event: "The Wedding Celebration", detail: "Molapo Gardens, Mahalapye" },
+  { event: "Matrimonial Church Service" },
+  { event: "Garden Photoshoot" },
+  { event: "Guest Arrival and Seating" },
+  { event: "First and Opening Dance" },
+  { event: "Wedding Celebration Proceedings" },
+  { event: "Reception" },
 ];
 
 function MapPinIcon({ className }: { className?: string }) {
