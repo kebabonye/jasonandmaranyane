@@ -10,7 +10,7 @@ import {
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import appCss from "../styles.css?url";
-import musicSrc from "@/assets/music.mp3";
+import musicSrc from "@/assets/Music.mp3";
 
 // Rendered by the router when a URL doesn't match any route.
 function NotFoundComponent() {
