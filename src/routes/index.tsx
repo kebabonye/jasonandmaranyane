@@ -126,7 +126,7 @@ function InvitationPage() {
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <div className="relative">
                   <Countdown variant="white" />
-                  <ScrollDownButton className="absolute -right-3 -top-3 z-10" />
+                  <ScrollDownButton className="absolute -right-3 -top-8 z-10" />
                 </div>
               </div>
             </div>
