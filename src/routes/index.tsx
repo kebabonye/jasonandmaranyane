@@ -127,9 +127,9 @@ function InvitationPage() {
                 <Countdown variant="white" />
               </div>
             </div>
-          </div>
 
-          <ScrollDownButton className="absolute inset-x-0 bottom-6 z-10" />
+            <ScrollDownButton className="relative z-10 mt-8" />
+          </div>
         </section>
 
         <div className="flex flex-col gap-4 py-6">
