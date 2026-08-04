@@ -123,7 +123,7 @@ function InvitationPage() {
                 className="font-display mt-1 text-lg text-white"
                 delay={150}
               />
-              <div className="mt-4 flex items-center justify-center gap-4">
+              <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <Countdown variant="white" />
                 <ScrollDownButton className="relative z-10" />
               </div>
