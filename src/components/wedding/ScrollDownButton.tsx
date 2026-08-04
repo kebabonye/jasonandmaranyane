@@ -16,11 +16,9 @@ export function ScrollDownButton({
       type="button"
       onClick={handleClick}
       aria-label="Scroll down"
-      className={`group flex flex-col items-center gap-1.5 text-white ${className}`}
+      className={`group flex items-center justify-center text-white ${className}`}
     >
-      <span className="whitespace-nowrap text-[8px] font-semibold uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] sm:text-[9px] sm:tracking-[0.25em]">
-        {label}
-      </span>
+      <span className="sr-only">{label}</span>
       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center sm:h-9 sm:w-9">
         <span className="absolute inset-0 animate-ping rounded-full bg-blush/40" />
         <span className="absolute inset-0 rounded-full border border-white/70 bg-black/20 backdrop-blur-sm transition-colors group-hover:bg-black/40" />
