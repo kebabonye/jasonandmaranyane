@@ -4,6 +4,7 @@ import { Footer } from "@/components/wedding/Footer";
 
 import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
+import { ScrollDownButton } from "@/components/wedding/ScrollDownButton";
 import image4 from "@/assets/image4.png";
 import image5 from "@/assets/image5.jpeg";
 import kgorosoPrint from "@/assets/kgoroso.jpeg";
@@ -70,6 +71,7 @@ function KgorosoPage() {
                 text="Jason & Maranyane"
                 className="mt-3 text-sm uppercase tracking-[0.35em] md:text-lg"
               />
+              <ScrollDownButton className="mt-6" />
             </div>
           </div>
         </section>

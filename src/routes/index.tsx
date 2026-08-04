@@ -5,6 +5,7 @@ import { Footer } from "@/components/wedding/Footer";
 import { Countdown } from "@/components/wedding/Countdown";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
 import { FaqSection } from "@/components/wedding/FaqSection";
+import { ScrollDownButton } from "@/components/wedding/ScrollDownButton";
 import bgImage from "@/assets/homepage.jpeg";
 import image3 from "@/assets/image3.jpeg";
 import programImage from "@/assets/program.jpeg";
@@ -127,6 +128,8 @@ function InvitationPage() {
               </div>
             </div>
           </div>
+
+          <ScrollDownButton className="absolute inset-x-0 bottom-6 z-10" />
         </section>
 
         <div className="flex flex-col gap-4 py-6">
