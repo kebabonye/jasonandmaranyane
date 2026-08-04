@@ -111,7 +111,7 @@ function KgorosoPage() {
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <div className="relative">
                   <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="white" />
-                  <ScrollDownButton className="absolute -right-3 -top-8 z-10" />
+                  <ScrollDownButton className="absolute -right-3 -top-14 z-10" />
                 </div>
               </div>
             </div>
