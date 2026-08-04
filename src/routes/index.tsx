@@ -112,27 +112,24 @@ function InvitationPage() {
               className="animate-fade-up mt-6 border-t border-white/20 pt-6"
               style={{ animationDelay: "500ms" }}
             >
-              <div className="flex items-center justify-center gap-3">
-                <div>
-                  <AnimatedText
-                    as="p"
-                    text="Counting down to"
-                    className="text-xs uppercase tracking-[0.3em] text-white/70"
-                  />
-                  <AnimatedText
-                    as="p"
-                    text="October 31, 2026"
-                    className="font-display mt-1 text-lg text-white"
-                    delay={150}
-                  />
-                </div>
-                <ScrollDownButton className="relative z-10" />
-              </div>
+              <AnimatedText
+                as="p"
+                text="Counting down to"
+                className="text-xs uppercase tracking-[0.3em] text-white/70"
+              />
+              <AnimatedText
+                as="p"
+                text="October 31, 2026"
+                className="font-display mt-1 text-lg text-white"
+                delay={150}
+              />
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <Countdown variant="white" />
               </div>
             </div>
           </div>
+
+          <ScrollDownButton className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2" />
         </section>
 
         <div className="flex flex-col gap-4 py-6">

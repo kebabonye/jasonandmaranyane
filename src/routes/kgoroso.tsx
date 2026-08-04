@@ -74,7 +74,7 @@ function KgorosoPage() {
             </div>
           </div>
 
-          <ScrollDownButton className="fixed right-5 top-16 z-50" />
+          <ScrollDownButton className="absolute bottom-6 left-1/2 z-50 -translate-x-1/2" />
         </section>
 
         {/* Welcome — the verse and countdown, previously part of the hero */}
