@@ -86,7 +86,7 @@ function KgorosoPage() {
               </span>
               <AnimatedText
                 as="p"
-                text="Where you go I will go, and where you stay I will stay."
+                text="Where you go I will go, and where you stay I will stay.Your people will be my people and your God my God."
                 className="font-display -mt-2 text-lg italic leading-relaxed text-white/90 md:text-xl"
               />
               <AnimatedText
