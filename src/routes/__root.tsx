@@ -178,10 +178,9 @@ function AudioPlayer() {
       <button
         onClick={toggleMute}
         aria-label={muted ? "Unmute music" : "Mute music"}
-        className="fixed right-5 top-5 z-50 flex items-center gap-2 rounded-full border border-white/40 bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-widest text-white shadow-lg backdrop-blur-sm transition hover:bg-black/60"
+        className="fixed right-5 top-5 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white shadow-lg backdrop-blur-sm transition hover:bg-black/60"
       >
         <SpeakerIcon muted={muted} className="h-4 w-4" />
-        {muted ? "Unmute" : "Mute"}
       </button>
     </>
   );

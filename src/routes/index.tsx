@@ -129,7 +129,7 @@ function InvitationPage() {
             </div>
           </div>
 
-          <ScrollDownButton className="fixed left-5 top-5 z-50" />
+          <ScrollDownButton className="fixed right-5 top-16 z-50" />
         </section>
 
         <div className="flex flex-col gap-4 py-6">
