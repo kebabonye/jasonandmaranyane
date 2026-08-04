@@ -73,6 +73,8 @@ function KgorosoPage() {
               />
             </div>
           </div>
+
+          <ScrollDownButton className="fixed left-5 top-5 z-50" />
         </section>
 
         {/* Welcome — the verse and countdown, previously part of the hero */}
@@ -110,7 +112,6 @@ function KgorosoPage() {
               />
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="white" />
-                <ScrollDownButton className="relative z-10" />
               </div>
             </div>
           </div>

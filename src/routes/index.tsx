@@ -125,10 +125,11 @@ function InvitationPage() {
               />
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
                 <Countdown variant="white" />
-                <ScrollDownButton className="relative z-10" />
               </div>
             </div>
           </div>
+
+          <ScrollDownButton className="fixed left-5 top-5 z-50" />
         </section>
 
         <div className="flex flex-col gap-4 py-6">
