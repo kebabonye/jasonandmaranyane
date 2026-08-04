@@ -5,6 +5,7 @@ import { Slideshow } from "@/components/wedding/Slideshow";
 import { AnimatedText } from "@/components/wedding/AnimatedText";
 import image1 from "@/assets/image1.jpeg";
 import image2 from "@/assets/image2.jpeg";
+import image3 from "@/assets/image3.jpeg";
 import image5 from "@/assets/image5.jpeg";
 import image6 from "@/assets/image6.jpg";
 import image7 from "@/assets/image7.jpg";
@@ -20,6 +21,7 @@ const galleryImages = [
   image6,
   image1,
   image5,
+  image3,
   image2,
   image9,
 ];
