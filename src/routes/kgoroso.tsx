@@ -97,24 +97,22 @@ function KgorosoPage() {
 
             {/* Countdown */}
             <div className="mt-6 border-t border-white/20 pt-6">
-              <div className="flex items-center justify-center gap-3">
-                <div>
-                  <AnimatedText
-                    as="p"
-                    text="Counting down to"
-                    className="text-xs uppercase tracking-[0.3em] text-white/70"
-                  />
-                  <AnimatedText
-                    as="p"
-                    text="November 7, 2026"
-                    className="font-display mt-1 text-lg"
-                    delay={150}
-                  />
-                </div>
-                <ScrollDownButton className="relative z-10" />
-              </div>
+              <AnimatedText
+                as="p"
+                text="Counting down to"
+                className="text-xs uppercase tracking-[0.3em] text-white/70"
+              />
+              <AnimatedText
+                as="p"
+                text="November 7, 2026"
+                className="font-display mt-1 text-lg"
+                delay={150}
+              />
               <div className="mt-4 flex items-center justify-center gap-2 sm:gap-3">
-                <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="white" />
+                <div className="relative">
+                  <Countdown targetDate="2026-11-07T00:00:00+02:00" variant="white" />
+                  <ScrollDownButton className="absolute -right-3 -top-3 z-10" />
+                </div>
               </div>
             </div>
           </div>
