@@ -40,7 +40,7 @@ export function Countdown({
 
   // Avoid an SSR/client mismatch: render nothing until mounted, then tick client-side.
   if (!timeLeft) {
-    return <div className="h-14 w-56" aria-hidden="true" />;
+    return <div className="h-20 w-72" aria-hidden="true" />;
   }
 
   const units: Array<{ label: string; value: number }> = [
@@ -60,14 +60,14 @@ export function Countdown({
     variant === "dark" ? "text-white/70" : variant === "white" ? "text-black/60" : "text-muted-foreground";
 
   return (
-    <div className="flex flex-nowrap items-center justify-center gap-1.5 sm:gap-2">
+    <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-3">
       {units.map((unit) => (
         <div
           key={unit.label}
-          className={`flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg border sm:h-14 sm:w-14 ${boxClass}`}
+          className={`flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg border sm:h-20 sm:w-20 ${boxClass}`}
         >
-          <span className="font-display text-base sm:text-lg">{String(unit.value).padStart(2, "0")}</span>
-          <span className={`text-[7px] uppercase tracking-[0.08em] sm:text-[8px] sm:tracking-[0.1em] ${labelClass}`}>
+          <span className="font-display text-lg sm:text-2xl">{String(unit.value).padStart(2, "0")}</span>
+          <span className={`text-[9px] uppercase tracking-[0.1em] sm:text-[10px] sm:tracking-[0.15em] ${labelClass}`}>
             {unit.label}
           </span>
         </div>
