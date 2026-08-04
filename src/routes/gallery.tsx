@@ -15,8 +15,8 @@ import image10 from "@/assets/image10.jpg";
 const galleryImages = [
   image2,
   image7,
-  image8,
   image10,
+  image8,
   image6,
   image1,
   image5,
